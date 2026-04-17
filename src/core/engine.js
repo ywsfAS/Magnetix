@@ -1,4 +1,4 @@
-import { ticker } from "./ticker";
+import ticker from "./ticker.js";
 
 
 class Engine {
@@ -12,10 +12,10 @@ class Engine {
         this.animations.add(animation);
     }
     remove(animation) {
-        this.animations.remove(animation);
+        this.animations.delete(animation);
     }
     update(time) {
-        this.animations.forEach(animation => animation.update());
+        this.animations.forEach(animation => animation.update(time));
     }
 }
 

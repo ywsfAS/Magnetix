@@ -6,7 +6,7 @@ function add(fn) {
 }
 
 function remove(fn) {
-    subscribers.remove(fn);
+    subscribers.delete(fn);
 }
 function tick(time) {
     subscribers.forEach(sub => sub(time));

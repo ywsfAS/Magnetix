@@ -1,20 +1,24 @@
-import engine from "./engine";
-
+import engine from "./engine.js";
+import Easings from "./easing.js";
 function createAnimation(config) {
     const start = performance.now();
 
     const anim = {
         update(time) {
+
             const elapsed = time - start;
 
             let progress = elapsed / config.duration;
+            const easefn = config.easing || Easings.linear;
+            let easedProgress = easefn(progress);
             if (progress > 1) progress = 1;
 
             const value =
-                config.from + (config.to - config.from) * progress;
+                config.from + (config.to - config.from) * easedProgress;
 
             if (config.onUpdate) {
-                config.onUpdate(value, progress);
+
+                config.onUpdate(value, easedProgress);
             }
 
             if (progress === 1) {
@@ -31,6 +35,4 @@ function createAnimation(config) {
     return anim;
 }
 
-export default {
-    createAnimation
-};
+export default createAnimation
