@@ -1,18 +1,21 @@
 # Magnetix
 
-A simple animation engine built on `requestAnimationFrame`.
+A simple animation engine.
 
----
+
 
 ## Features
 
-* Single animation loop (no multiple `requestAnimationFrame`)
-* Central engine to manage animations
-* Config-based animation system
+
+* Central engine to manage all motion
+* Time-based animations
+* Reveal animations with transforms (x, y, scale, rotate)
+* Magnetic mouse interaction
+* Parallax scroll effect
 * Easing functions support
+* Works with multiple elements
 * Easy to extend
 
----
 
 ## Usage
 
@@ -23,15 +26,66 @@ import Easings from "./core/easings.js";
 createAnimation({
   from: 0,
   to: 100,
-  duration: 1000,
+  duration: 800,
   easing: Easings.easeOutQuad,
   onUpdate: (value) => {
     element.style.transform = `translateY(${value}px)`;
   }
 });
+
 ```
 
----
+## Reveal
+
+```js
+Motion.reveal(element, {
+  delay: 200,
+  duration: 800,
+
+  x: 50,
+  y: 100,
+  scale: 0.8,
+  rotate: 10
+});
+
+Properties
+
+x        translate X (px)
+y        translate Y (px)
+scale    scale value
+rotate   rotation (deg)
+```
+
+## Magnetic
+```js
+Motion.magnetic(element, {
+  strength: 0.2,
+  maxDistance: 120
+});
+
+```
+
+## Parallax
+```js
+Motion.parallax(element, {
+  speed: 0.3
+});
+
+```
+
+## API
+```js
+createAnimation(config)
+
+from       starting value
+to         ending value
+duration   duration in ms
+delay      optional delay before start
+easing     easing function
+onUpdate   runs every frame
+
+```
+
 
 ## Structure
 
@@ -45,46 +99,25 @@ Magnetix/
 │   │   └── motion.js
 │   │
 │   ├── features/
-│   │   ├── reveal/
-│   │   │   └── reveal.js
-│   │   │
-│   │   ├── parallax/
-│   │   │
-│   │   ├── magnetic/
-│   │   │
-│   │   └── split-text/
+│       ├── reveal/
+│       │   └── reveal.js
+│       │
+│       ├── parallax/
+|       |    └── parallex.js
+│       │
+│       ├── magnetic/
+|       |    └── magnetic.js
+│       |  
+│       └── split-text/
 │
 ├── demo/
 │   ├── demo.html
 │   └── demo.js
 │
 ├── docs/
-├── tests/
-├── dist/
+├── tests/ (vitest)
+├── .gitignore
+|── package.json
+|── vitest.config.js
 └── README.md
 ```
-
----
-
-## API
-
-### `createAnimation(config)`
-
-| Property   | Description                               |
-| ---------- | ----------------------------------------- |
-| `from`     | Starting value                            |
-| `to`       | Ending value                              |
-| `duration` | Animation duration (ms)                   |
-| `easing`   | Optional easing function                  |
-| `onUpdate` | Called every frame with the updated value |
-
----
-
-## Status
-
-* Core system is complete
-* Next steps:
-
-  * Reveal animations
-  * Parallax effects
-  * Timeline system
