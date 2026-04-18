@@ -1,6 +1,7 @@
 import createAnimation from "../src/core/motion.js";
 import Easings from "../src/core/easing.js";
 import reveal from "../src/features/reveal/reveal.js";
+import magnetic from "../src/features/magnetic/magnetic.js";
 createAnimation({
     from: 0,
     to: 100,
@@ -11,14 +12,8 @@ createAnimation({
     },
     easing: Easings.easeInOutCubic
 });
-reveal(".box", {
-    easing: Easings.easeInSine,
-    duration: 5000,
-    transform: {
-        x: -200,
-        y: 500,
-        rotate: 3120,
-        scale: 6,
-    },
-    delay: 6000,
-});
+
+const { kill } = magnetic(".box");
+setTimeout(() => {
+    kill();
+}, 10000);
