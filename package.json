@@ -1,0 +1,28 @@
+{
+  "name": "magnetix",
+  "version": "1.0.0",
+  "description": "A simple animation engine built on `requestAnimationFrame`.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ywsfAS/Magnetix.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ywsfAS/Magnetix/issues"
+  },
+  "homepage": "https://github.com/ywsfAS/Magnetix#readme",
+  "dependencies": {
+    "jsdom": "^29.0.2",
+    "vitest": "^4.1.4"
+  }
+}
