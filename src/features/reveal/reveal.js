@@ -19,7 +19,7 @@ function reveal(selector, config = {}) {
                 x: config?.transform?.x ?? 0,
                 y: config?.transform?.y ?? 0,
                 rotate: config?.transform?.rotate ?? 0,
-                scale: config?.transform?.scale ?? 0,
+                scale: config?.transform?.scale ?? 1,
 
             }
 
