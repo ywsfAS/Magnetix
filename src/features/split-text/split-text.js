@@ -40,12 +40,14 @@ export default function SplitTextAnimation(selector, type = "chars", config = {}
     const duration = config.duration ?? 600;
     const delay = config.delay ?? 50;
     const transform = {
-        rotate: config?.transform?.rotate ?? 0,
-        scale: config?.transform?.scale ?? 1,
+        x: config?.transform?.x ?? { value: 0, easing: Easings.linear },
+        y: config?.transform?.y ?? { value: 50, easing: Easings.linear },
+        rotate: config?.transform?.rotate ?? { value: 0, easing: Easings.linear },
+        scale: config?.transform?.scale ?? { value: 1, easing: Easings.linear },
     }
 
     const baseGap = 0.1;
-    const factor = config?.transform?.factor ?? transform.scale - 1;
+    const factor = config?.transform?.factor ?? transform.scale.value - 1;
     letters.forEach((el, i) => {
         createAnimation({
             from,
@@ -54,13 +56,18 @@ export default function SplitTextAnimation(selector, type = "chars", config = {}
             delay: i * delay,
             easing: config.easing,
             onUpdate: (value, progress) => {
-                let scale = 1 + (transform.scale - 1) * progress;
-                el.style.transform = `translateY(${value}px)
-                rotate(${transform.rotate * progress}deg)
-                scale(${scale})
+                let easedScale = 1 + (transform.scale.value - 1) * transform.scale.easing(progress);
+                let easedY = transform.y.value * transform.y.easing(progress);
+                let easedX = transform.x.value * transform.x.easing(progress);
+                let easedRotate = transform.rotate.value * transform.rotate.easing(progress);
+                el.style.transform = `translateY(${easedY}px)
+                translateX(${easedX}px)
+                rotate(${easedRotate}deg)
+                scale(${easedScale})
                 `;
 
-                const spacing = baseGap + (scale - 1) * factor;
+                const spacing = baseGap + (easedScale - 1) * factor;
+                console.log(spacing)
                 el.style.marginRight = `${spacing}em`;
             }
         })

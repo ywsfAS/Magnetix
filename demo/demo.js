@@ -15,13 +15,14 @@ createAnimation({
     easing: Easings.easeInOutCubic
 });
 
-parallax(".box", {
-    speed: 0.1,
-});
-
-parallax(".blue", {
-    speed: 0.09,
+reveal(".box", {
+    transform: {
+        y: { value: -120, easing: Easings.easeInOutCubic },
+        rotate: { value: 360, easing: Easings.easeInOutQuad }
+    }
 })
+
+
 SplitTextAnimation(".title", "chars", {
     from: 0,
     to: 200,
@@ -29,7 +30,7 @@ SplitTextAnimation(".title", "chars", {
     delay: 100,
     duration: 1200,
     transform: {
-        scale: 2,
-        rotate: 360,
+        scale: { value: 2, easing: Easings.linear },
+        rotate: { value: 360, easing: Easings.linear },
     }
 });

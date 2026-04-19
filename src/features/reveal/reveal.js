@@ -1,3 +1,4 @@
+import Easings from "../../core/easing.js";
 import createAnimation from "../../core/motion.js";
 
 function reveal(selector, config = {}) {
@@ -16,10 +17,10 @@ function reveal(selector, config = {}) {
             const delay = config.delay ?? 0;
             console.log(config);
             const transform = {
-                x: config?.transform?.x ?? 0,
-                y: config?.transform?.y ?? 0,
-                rotate: config?.transform?.rotate ?? 0,
-                scale: config?.transform?.scale ?? 1,
+                x: config?.transform?.x ?? { value: 0, easing: Easings.linear },
+                y: config?.transform?.y ?? { value: 0, easing: Easings.linear },
+                rotate: config?.transform?.rotate ?? { value: 0, easing: Easings.linear },
+                scale: config?.transform?.scale ?? { value: 1, easing: Easings.linear },
 
             }
 
@@ -34,17 +35,18 @@ function reveal(selector, config = {}) {
                 easing: config.easing,
 
                 onUpdate: (value, progress) => {
-                    console.log(progress + "%");
-                    let scale = 1 + (transform.scale - 1) * progress;
-                    console.log("scale", scale);
 
+                    let easedScale = 1 + (transform.scale.value - 1) * transform.scale.easing(progress);
+                    let easedX = transform.x.value * transform.x.easing(progress);
+                    let easedRotate = transform.rotate.value * transform.rotate.easing(progress);
+                    let easedY = transform.y.value * transform.y.easing(progress);
                     el.style.opacity = progress;
                     // apply transform properties
                     el.style.transform = `
-                    translateX(${transform.x * progress}px)
-                    translateY(${transform.y * progress}px)
-                    rotate(${transform.rotate * progress}deg)
-                    scale(${scale})
+                    translateX(${easedX}px)
+                    translateY(${easedY}px)
+                    rotate(${easedRotate}deg)
+                    scale(${easedScale})
                     `;
                 }
             });
