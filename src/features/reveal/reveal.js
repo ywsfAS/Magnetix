@@ -5,6 +5,7 @@ import { DEFAULT_CONFIG, DEFAULT_TRANSFORM } from "./constants.js";
 
 function reveal(selector, config = {}) {
     const elements = document.querySelectorAll(selector);
+    const list = [];
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry, i) => {
             if (!entry.isIntersecting) return;
@@ -13,7 +14,7 @@ function reveal(selector, config = {}) {
             const { from, to, duration, delay, easing, transform: userTransform } = { ...DEFAULT_CONFIG, ...config };
             const transform = buildTransform(userTransform, DEFAULT_TRANSFORM);
 
-            createAnimation({
+            const anim = createAnimation({
                 from,
                 to,
                 duration,
@@ -24,12 +25,23 @@ function reveal(selector, config = {}) {
                     applyTransform(el, transform, progress);
                 }
             });
-
+            list.push(anim);
             observer.unobserve(el);
         });
     });
 
     elements.forEach((el) => observer.observe(el));
+    return {
+        pause() {
+            list.forEach(anim => anim.pause());
+        },
+        resume() {
+            list.forEach(anim => anim.resume());
+        },
+        kill() {
+            list.forEach(anim => anim.kill());
+        }
+    }
 }
 
 export default reveal;
