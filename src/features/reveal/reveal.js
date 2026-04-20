@@ -11,7 +11,7 @@ function reveal(selector, config = {}) {
             if (!entry.isIntersecting) return;
             const el = entry.target;
 
-            const { from, to, duration, delay, easing, transform: userTransform } = { ...DEFAULT_CONFIG, ...config };
+            const { from, to, duration, delay, easing, transform: userTransform, repeat, yoyo } = { ...DEFAULT_CONFIG, ...config };
             const transform = buildTransform(userTransform, DEFAULT_TRANSFORM);
 
             const anim = createAnimation({
@@ -20,7 +20,8 @@ function reveal(selector, config = {}) {
                 duration,
                 delay: delay * i,
                 easing: easing,
-
+                repeat,
+                yoyo,
                 onUpdate: (_, progress) => {
                     applyTransform(el, transform, progress);
                 }
@@ -40,7 +41,8 @@ function reveal(selector, config = {}) {
         },
         kill() {
             list.forEach(anim => anim.kill());
-        }
+        },
+
     }
 }
 
