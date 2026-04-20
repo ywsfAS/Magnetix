@@ -10,6 +10,7 @@ function createAnimation(config) {
     let elapsedTimeBeforePause = 0;
     let direction = 1;
     let isPaused = false;
+    let finished = false;
 
     const easefn = easing ?? Easings.linear;
 
@@ -27,19 +28,19 @@ function createAnimation(config) {
             const directedProgress = direction === 1 ? progress : 1 - progress;
             const easedProgress = easefn(directedProgress);
             const value = from + (to - from) * easedProgress;
-
-            onUpdate?.(value, easedProgress);
+            if (!finished) {
+                onUpdate?.(value, easedProgress);
+            }
 
             if (progress >= 1) {
                 if (repeat > 0 || repeat === Infinity) {
                     if (yoyo) {
-                        direction *= -1;
                         anim.reverse();
                     }
                     if (repeat !== Infinity) repeat--;
                     anim.reset(time);
                 } else {
-                    anim.kill();
+                    finished = true;
                 }
             }
         },
@@ -63,10 +64,18 @@ function createAnimation(config) {
         reset(time) {
             localStart = time;
         },
-
         reverse() {
-            [from, to] = [to, from];
+            direction *= -1;
+            finished = false;
         },
+        to(percent) {
+            percent = Math.max(0, Math.min(percent, 1));
+            let now = performance.now();
+            localStart = now - percent * duration;
+            finished = false;
+            this.update(now);
+            this.pause();
+        }
     };
 
     engine.add(anim);

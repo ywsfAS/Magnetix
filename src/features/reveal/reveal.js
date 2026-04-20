@@ -36,12 +36,19 @@ function reveal(selector, config = {}) {
         pause() {
             list.forEach(anim => anim.pause());
         },
-        resume() {
+        play() {
             list.forEach(anim => anim.resume());
         },
         kill() {
             list.forEach(anim => anim.kill());
         },
+        to(percent) {
+            list.forEach(anim => anim.to(percent));
+        },
+        reverse() {
+            list.forEach(anim => anim.reverse());
+        }
+
 
     }
 }

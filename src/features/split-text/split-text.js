@@ -33,12 +33,15 @@ export default function SplitText(selector, type = "chars", config = {}) {
         pause() {
             list.forEach(anim => anim.pause());
         },
-        resume() {
+        play() {
             list.forEach(anim => anim.resume());
         },
         kill() {
             list.forEach(anim => anim.kill());
         },
+        to(percent) {
+            list.forEach(anim => anim.to(percent));
+        }
 
 
     }
