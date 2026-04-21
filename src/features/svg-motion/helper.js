@@ -4,7 +4,6 @@ function cubicBezier(t, p0, p1, p2, p3) {
     return (Math.pow(value, 3) * p0 + 3 * Math.pow(value, 2) * t * p1 + 3 * value * Math.pow(t, 2) * p2 + Math.pow(t, 3) * p3);
 }
 function getBezierPoint(t, path) {
-
     const { from, p1, p2, to } = path;
     const x = cubicBezier(t, from[0], p1[0], p2[0], to[0]);
     const y = cubicBezier(t, from[1], p1[1], p2[1], to[1]);

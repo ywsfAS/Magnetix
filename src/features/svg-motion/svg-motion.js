@@ -30,7 +30,7 @@ function svgMotion(selector, config = {}) {
             anim.pause();
         },
         play: () => {
-            anim.play();
+            anim.resume();
         },
         to: () => {
             anim.to();

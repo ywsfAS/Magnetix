@@ -1,7 +1,8 @@
 import Magnetix from "../src/index.js";
 const { Easings } = Magnetix;
 
-Magnetix.svgMotion(".box", {
+const Timeline = new Magnetix.Timeline();
+const motion = Magnetix.svgMotion(".box", {
     duration: 12000,
 
     path: [

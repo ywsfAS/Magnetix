@@ -5,6 +5,7 @@ import reveal from "./features/reveal/reveal.js";
 import splitText from "./features/split-text/split-text.js";
 import createAnimation from "./core/motion.js";
 import svgMotion from "./features/svg-motion/svg-motion.js";
+import Timeline from "./core/timeline.js";
 
 export const Magnetix = {
     Easings,
@@ -13,6 +14,7 @@ export const Magnetix = {
     reveal,
     splitText,
     createAnimation,
-    svgMotion
+    svgMotion,
+    Timeline
 }
 export default Magnetix;

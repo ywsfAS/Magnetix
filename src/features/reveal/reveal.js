@@ -33,6 +33,7 @@ function reveal(selector, config = {}) {
 
     elements.forEach((el) => observer.observe(el));
     return {
+
         pause() {
             list.forEach(anim => anim.pause());
         },

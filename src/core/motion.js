@@ -9,13 +9,14 @@ function createAnimation(config) {
     let pauseTime = null;
     let elapsedTimeBeforePause = 0;
     let direction = 1;
-    let isPaused = false;
+    let isPaused = true;
     let finished = false;
 
     const easefn = easing ?? Easings.linear;
 
     const anim = {
         update(time) {
+
             if (isPaused) return;
 
             if (localStart === null) {
@@ -24,7 +25,7 @@ function createAnimation(config) {
             }
 
             const localTime = time - localStart - elapsedTimeBeforePause;
-            const progress = Math.min(localTime / duration, 1);
+            const progress = Math.min(Math.max(localTime / duration, 0), 1);
             const directedProgress = direction === 1 ? progress : 1 - progress;
             const easedProgress = easefn(directedProgress);
             const value = from + (to - from) * easedProgress;
