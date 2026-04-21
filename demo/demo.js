@@ -1,22 +1,17 @@
 import Magnetix from "../src/index.js";
 const { Easings } = Magnetix;
 
-
-const { pause, play, to, reverse } = Magnetix.reveal(".box", {
-    duration: 5000,
-    repeat: 2,
-    yoyo: true,
+Magnetix.svgMotion(".box", {
+    duration: 9000,
+    path: {
+        from: [0, 0],
+        p1: [400, 0],
+        p2: [400, -900],
+        to: [0, 0]
+    },
     transform: {
-        y: { value: -120, easing: Easings.easeInOutCubic },
-        rotate: { value: 360, easing: Easings.easeInOutQuad }
-    }
-})
-setTimeout(() => {
-    console.log("to 40%");
-    to(0.4);
-    setTimeout(() => {
-        console.log("play");
-        play();
+        rotate: { value: 340, easing: Easings.easeInOutQuad },
+        scale: { value: 1.5, easing: Easings.easeInOutQuad },
 
-    }, 2000);
-}, 12000);
+    }
+});

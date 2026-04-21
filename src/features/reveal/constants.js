@@ -12,5 +12,7 @@ export const DEFAULT_CONFIG = {
     to: 100,
     duration: 600,
     delay: 50,
+    repeat: 0,
+    yoyo: false,
 
 };
