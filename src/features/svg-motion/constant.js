@@ -10,12 +10,12 @@ const DEFAULT_CONFIG = {
     repeat: 0,
     yoyo: false,
 }
-const DEFAULT_PATH = {
+const DEFAULT_PATH = [{
     from: [0, 0],
     p1: [100, 100],
     p2: [200, 0],
     to: [300, 250]
-}
+}];
 const DEFAULT_TRANSFORM = {
     scale: DEFAULT_PROP(1),
     rotate: DEFAULT_PROP(0),
