@@ -3,19 +3,19 @@ import ticker from "./ticker.js";
 
 class Engine {
     constructor() {
-        this.animations = new Set();
+        this.timelines = new Set();
         this.update = this.update.bind(this);
         ticker.add(this.update);
     }
 
-    add(animation) {
-        this.animations.add(animation);
+    add(timeline) {
+        this.timelines.add(timeline);
     }
-    remove(animation) {
-        this.animations.delete(animation);
+    remove(timeline) {
+        this.timelines.delete(timeline);
     }
     update(time) {
-        this.animations.forEach(animation => animation.update(time));
+        this.timelines.forEach(tl => tl.update(time));
     }
 }
 

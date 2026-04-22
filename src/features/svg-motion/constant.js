@@ -19,6 +19,6 @@ const DEFAULT_PATH = [{
 const DEFAULT_TRANSFORM = {
     scale: DEFAULT_PROP(1),
     rotate: DEFAULT_PROP(0),
-    opacity: DEFAULT_PROP(1),
+    opacity: undefined,
 }
 export { DEFAULT_CONFIG, DEFAULT_PATH, DEFAULT_TRANSFORM };

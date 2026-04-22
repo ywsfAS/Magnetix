@@ -1,7 +1,7 @@
 import Magnetix from "../src/index.js";
 const { Easings } = Magnetix;
 
-const Timeline = new Magnetix.Timeline();
+const timeline = new Magnetix.Timeline();
 const motion = Magnetix.svgMotion(".box", {
     duration: 12000,
 
@@ -43,3 +43,46 @@ const motion = Magnetix.svgMotion(".box", {
         scale: { value: 1.8, easing: Easings.easeInOutQuad }
     }
 });
+
+const motion1 = Magnetix.svgMotion(".box", {
+    duration: 12000,
+    path: [
+        {
+            from: [0, 0],
+            p1: [100, -200],
+            p2: [600, 200],
+            to: [0, 0]
+        },
+
+        {
+            from: [0, 0],
+            p1: [300, -200],
+            p2: [600, 200],
+            to: [300, 400]
+        },
+    ]
+});
+
+
+const motion2 = Magnetix.svgMotion(".box", {
+    duration: 12000,
+    path: [
+        {
+            from: [0, 0],
+            p1: [170, -800],
+            p2: [300, 200],
+            to: [0, 0]
+        },
+
+        {
+            from: [0, 0],
+            p1: [300, -200],
+            p2: [600, 200],
+            to: [300, 400]
+        },
+    ]
+});
+
+
+
+timeline.add(motion).add(motion1).add(motion2);

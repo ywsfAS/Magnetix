@@ -16,6 +16,7 @@ function svgMotion(selector, config = {}) {
         delay: delay,
         easing,
         onUpdate(_, progress) {
+            console.log(progress);
             const { x, y } = getBezierOnPath(progress, path);
             transform.x = x;
             transform.y = y;
@@ -26,6 +27,9 @@ function svgMotion(selector, config = {}) {
 
 
     return {
+        duration,
+        update: anim.update,
+        run: anim.run,
         pause: () => {
             anim.pause();
         },

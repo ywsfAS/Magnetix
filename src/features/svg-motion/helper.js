@@ -27,7 +27,7 @@ function applyTransform(el, t, progress) {
     const y = t.y;
     const scale = 1 + (t.scale.value - 1) * t.scale.easing(progress);
     const rotate = t.rotate.value * t.rotate.easing(progress);
-    const opacity = t.opacity.value * t.opacity.easing(progress);
+    const opacity = t?.opacity === undefined ? 1 : t.opacity.value * t.opacity.easing(progress);
 
     el.style.transform =
         `translateY(${y}px) translateX(${x}px) rotate(${rotate}deg) scale(${scale})`;
