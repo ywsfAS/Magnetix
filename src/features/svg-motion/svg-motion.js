@@ -11,7 +11,6 @@ function svgMotion(selector, config = {}) {
     } = { ...DEFAULT_CONFIG, ...config };
 
     const path = !userPath || userPath.length === 0 ? DEFAULT_PATH : userPath;
-    console.log(path);
     const transform = { ...DEFAULT_TRANSFORM, ...userTransform };
 
     const anim = createAnimation({

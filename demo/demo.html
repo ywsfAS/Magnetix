@@ -4,15 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Magnetix API Simple Demo</title>
     <link href="style.css" rel="stylesheet" />
 </head>
 
 <body>
-    <div class="box"></div>
-    <h1 class="title">this is demo</h1>
-    <div class="circle"></div>
+    <div class="container">
+        <h1 class="title">Magnetix API Demo</h1>
+
+        <div class="elements-wrapper">
+            <div class="box"></div>
+
+            <div class="circle"></div>
+        </div>
+        <div class="btn-container">
+            <button id="PauseBtn" class="control-btn">Pause</button>
+            <button id="seekBtn" class="control-btn">Seek to 0.5 (50%)</button>
+            <button id="PlayBtn" class="control-btn">Play</button>
+        </div>
+    </div>
+
+    <script src="demo.js" type="module"></script>
 </body>
-<script src="demo.js" type="module"></script>
 
 </html>
