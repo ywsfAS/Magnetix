@@ -60,7 +60,12 @@ const motion1 = Magnetix.svgMotion(".box", {
             p2: [600, 200],
             to: [300, 400]
         },
-    ]
+    ],
+
+    transform: {
+        rotate: { value: 720, easing: Easings.easeInOutQuad },
+        scale: { value: 1.8, easing: Easings.easeInOutQuad }
+    }
 });
 
 
@@ -73,16 +78,16 @@ const motion2 = Magnetix.svgMotion(".box", {
             p2: [300, 200],
             to: [0, 0]
         },
+    ],
 
-        {
-            from: [0, 0],
-            p1: [300, -200],
-            p2: [600, 200],
-            to: [300, 400]
-        },
-    ]
+    transform: {
+        rotate: { value: 720, easing: Easings.easeInOutQuad },
+        scale: { value: 1.8, easing: Easings.easeInOutQuad }
+    }
 });
-
+console.log(motion);
 
 
 timeline.add(motion).add(motion1).add(motion2);
+timeline.play();
+timeline.seek(0.5);

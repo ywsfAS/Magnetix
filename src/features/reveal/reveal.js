@@ -1,57 +1,51 @@
-import Easings from "../../core/easing.js";
 import createAnimation from "../../core/motion.js";
 import { applyTransform, buildTransform } from "../common.js";
 import { DEFAULT_CONFIG, DEFAULT_TRANSFORM } from "./constants.js";
 
 function reveal(selector, config = {}) {
-    const elements = document.querySelectorAll(selector);
-    const list = [];
+    const { from, to, duration, delay, easing, transform: userTransform, repeat, yoyo } =
+        { ...DEFAULT_CONFIG, ...config };
+
+    const elements = [...document.querySelectorAll(selector)];
+    let currentLocalTime = 0;
+
+    const items = elements.map((el, i) => {
+        const transform = buildTransform(userTransform, DEFAULT_TRANSFORM);
+        const anim = createAnimation({
+            from, to, duration,
+            delay: delay * i,   // stagger per element
+            easing, repeat, yoyo,
+            onUpdate: (_, progress) => {
+                applyTransform(el, transform, progress);
+            },
+        });
+        return { anim, visibleAt: null };
+    });
+
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, i) => {
+        entries.forEach((entry) => {
             if (!entry.isIntersecting) return;
-            const el = entry.target;
-
-            const { from, to, duration, delay, easing, transform: userTransform, repeat, yoyo } = { ...DEFAULT_CONFIG, ...config };
-            const transform = buildTransform(userTransform, DEFAULT_TRANSFORM);
-
-            const anim = createAnimation({
-                from,
-                to,
-                duration,
-                delay: delay * i,
-                easing: easing,
-                repeat,
-                yoyo,
-                onUpdate: (_, progress) => {
-                    applyTransform(el, transform, progress);
-                }
-            });
-            list.push(anim);
-            observer.unobserve(el);
+            const idx = elements.indexOf(entry.target);
+            if (idx === -1 || items[idx].visibleAt !== null) return;
+            items[idx].visibleAt = currentLocalTime;
+            observer.unobserve(entry.target);
         });
     });
 
     elements.forEach((el) => observer.observe(el));
+
+    const totalDuration = delay * (elements.length - 1) + duration;
+
     return {
-
-        pause() {
-            list.forEach(anim => anim.pause());
+        totalDuration,
+        update(localTime) {
+            currentLocalTime = localTime;
+            items.forEach(({ anim, visibleAt }) => {
+                if (visibleAt === null) return;
+                anim.update(localTime - visibleAt);
+            });
         },
-        play() {
-            list.forEach(anim => anim.resume());
-        },
-        kill() {
-            list.forEach(anim => anim.kill());
-        },
-        to(percent) {
-            list.forEach(anim => anim.to(percent));
-        },
-        reverse() {
-            list.forEach(anim => anim.reverse());
-        }
-
-
-    }
+    };
 }
 
 export default reveal;

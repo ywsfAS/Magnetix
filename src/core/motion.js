@@ -2,85 +2,38 @@ import engine from "./engine.js";
 import Easings from "./easing.js";
 
 function createAnimation(config) {
-    const { easing, delay, duration, onUpdate } = config;
-    let { from, to, repeat, yoyo } = config;
-
-    let localStart = null;
-    let pauseTime = null;
-    let elapsedTimeBeforePause = 0;
-    let direction = 1;
-    let isPaused = false;
-    let stoped = true;
-    let finished = false;
+    const { easing, delay = 0, duration, onUpdate, from, to, repeat = 0, yoyo = false } = config;
 
     const easefn = easing ?? Easings.linear;
 
+    const totalCycles = repeat === Infinity ? Infinity : repeat + 1;
+    const totalDuration = delay + (totalCycles === Infinity ? Infinity : totalCycles * duration);
     const anim = {
-        update(time) {
-            if (stoped) return;
-            if (isPaused) return;
+        totalDuration,
+        update(localTime) {
+            if (localTime < delay) return;
+            const elapsed = localTime - delay;
+            let progress, cycleIndex;
 
-            if (localStart === null) {
-                if (time < delay) return;
-                localStart = time;
-            }
+            if (totalCycles === Infinity) {
+                cycleIndex = Math.floor(elapsed / duration);
+                progress = (elapsed % duration) / duration; // each cycle 0->1
+            } else {
+                const total = totalCycles * duration;
 
-            const localTime = time - localStart - elapsedTimeBeforePause;
-            console.log("local", localTime, duration);
-            const progress = Math.min(Math.max(localTime / duration, 0), 1);
-            console.log("elpased", elapsedTimeBeforePause)
-            const directedProgress = direction === 1 ? progress : 1 - progress;
-            const easedProgress = easefn(directedProgress);
-            const value = from + (to - from) * easedProgress;
-            if (!finished) {
-                onUpdate?.(value, easedProgress);
-            }
-
-            if (progress >= 1) {
-                if (repeat > 0 || repeat === Infinity) {
-                    if (yoyo) {
-                        anim.reverse();
-                    }
-                    if (repeat !== Infinity) repeat--;
-                    anim.reset(time);
+                if (elapsed >= total) {
+                    cycleIndex = totalCycles - 1;
+                    progress = 1;
                 } else {
-                    finished = true;
+                    cycleIndex = Math.floor(elapsed / duration);
+                    progress = (elapsed % duration) / duration;
                 }
             }
-        },
-
-        kill() {
-            engine.remove(anim);
-        },
-
-        pause() {
-            if (isPaused) return;
-            isPaused = true;
-            pauseTime = performance.now();
-        },
-
-        resume() {
-            if (!isPaused) return;
-            isPaused = false;
-            elapsedTimeBeforePause += performance.now() - pauseTime;
-        },
-        run() {
-            stoped = false;
-        },
-        reset(time) {
-            localStart = time;
-        },
-        reverse() {
-            direction *= -1;
-            finished = false;
-        },
-        to(percent) {
-            percent = Math.max(0, Math.min(percent, 1));
-            let now = performance.now();
-            localStart = now - percent * duration;
-            finished = false;
-            this.update(now);
-            this.pause();
+            // change direction based on yoyo and cycleIndex
+            const directedProgress = yoyo && (cycleIndex % 2 === 1) ? 1 - progress : progress;
+            const easedProgress = easefn(directedProgress);
+            const value = from + (to - from) * easedProgress;
+            onUpdate?.(value, easedProgress);
         }
     };
     return anim;

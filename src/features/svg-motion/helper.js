@@ -19,7 +19,6 @@ function getBezierOnPath(t, segments) {
     // normalize t inside segment
     const localT =
         (t - segmentStart) / (segmentEnd - segmentStart);
-
     return getBezierPoint(localT, segment);
 }
 function applyTransform(el, t, progress) {

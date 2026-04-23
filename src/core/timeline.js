@@ -3,7 +3,10 @@ import engine from "./engine.js";
 class Timeline {
     constructor() {
         this.animations = [];
-        this.time = 0;
+        this.totalDuration = 0;
+        this.currentTime = 0;
+        this.isPaused = true;
+        this.lastTime = null;
         engine.add(this);
 
     }
@@ -11,33 +14,57 @@ class Timeline {
     add(config) {
         // Convert config to animation object
         const anim = {
-            start: this.time,
-            duration: config.duration,
-            run: config.run,
-            update: (p) => {
-                config.update(p);
-            },
-            finished: false
+            start: this.totalDuration,
+            anim: config,
         };
         this.animations.push(anim);
-        this.time += config.duration;
+        if (isFinite(config.totalDuration)) {
+            this.totalDuration += config.totalDuration;
+        }
         return this;
     }
+    play() {
+        this.isPaused = false;
+        return this;
+    }
+    pause() {
+        this.isPaused = true;
+        return this;
+    }
+    seek(progress) {
+        this.currentTime = Math.max(Math.min(progress, 1), 0) * this.totalDuration;
+        this.dispatch(this.currentTime);
+        return this;
+    }
+    reset() {
+        this.currentTime = 0;
+        this.isPaused = true;
+        return this;
+    }
+    clear() {
+        this.reset();
+        this.animations = [];
+        return this;
+    }
+    dispatch(currentTime) {
 
+        for (const { anim, start } of this.animations) {
+            anim.update(currentTime - start);
+        }
+    }
     update(time) {
+        if (this.lastTime === null) {
+            this.lastTime = time;
+        }
+        const dt = time - this.lastTime;
+        this.lastTime = time;
 
-        this.animations.forEach(a => {
-            if (time < a.start) return;
-            let end = a.start + a.duration;
-            if (time <= end) {
-                a.run();
-                a.update(time);
-            } else if (!a.finished) {
-                console.log("finished", a)
-                a.update(end + time);
-                a.finished = true;
-            }
-        });
+        if (this.isPaused) return;
+
+        this.currentTime = isFinite(this.totalDuration)
+            ? Math.min(this.currentTime + dt, this.totalDuration)
+            : this.currentTime + dt;
+        this.dispatch(this.currentTime);
     }
 }
 
