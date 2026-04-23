@@ -85,9 +85,19 @@ const motion2 = Magnetix.svgMotion(".box", {
         scale: { value: 1.8, easing: Easings.easeInOutQuad }
     }
 });
-console.log(motion);
+const motion3 = Magnetix.magnetic(".circle");
+const motion4 = Magnetix.splitText(".title", "chars", {
+    from: 0,
+    to: 200,
+    easing: Easings.easeInOutCubic,
+    delay: 100,
+    duration: 1200,
+    transform: {
+        scale: 2,
+        rotate: 360,
+    }
+});
 
-
-timeline.add(motion).add(motion1).add(motion2);
+timeline.add(motion, motion1, motion2, motion3, motion4);
 timeline.play();
 timeline.seek(0.5);

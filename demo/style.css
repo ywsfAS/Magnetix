@@ -15,13 +15,22 @@ body {
 
 }
 
-.box {
+.box,
+.circle {
     width: 200px;
     height: 200px;
     border-radius: 5px;
-    background-color: rgb(255, 101, 101);
     margin-bottom: 20px;
+}
+
+.box {
     border-radius: 5%;
+    background-color: rgb(255, 101, 101);
+}
+
+.circle {
+    border-radius: 50%;
+    background-color: aqua;
 }
 
 .box.blue {

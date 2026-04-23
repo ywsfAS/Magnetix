@@ -1,48 +1,38 @@
-import Easings from "../../core/easing.js";
-import engine from "../../core/engine.js";
-import createAnimation from "../../core/motion.js";
-import { DEFAULT_CONFIG, DEFAULT_TRANSFORM } from "./contants.js";
+import { DEFAULT_CONFIG, DEFAULT_TRANSFORM } from "./constants.js";
 import { splitText } from "./helper.js";
 import { buildTransform, computeSpacing, applyTransform } from "../common.js";
+import createAnimation from "../../core/motion.js";
 
-export default function SplitText(selector, type = "chars", config = {}) {
+function SplitText(selector, type = "chars", config = {}) {
     const element = document.querySelector(selector);
     const letters = splitText(element, type);
-    const { from, to, delay, duration, transform: userTransform, easing, yoyo, repeat } = { ...DEFAULT_CONFIG, ...config };
-    const list = [];
+
+    const { from, to, delay, duration, transform: userTransform, easing, yoyo, repeat } =
+        { ...DEFAULT_CONFIG, ...config };
+
     const transform = buildTransform(userTransform, DEFAULT_TRANSFORM);
     const factor = config?.transform?.factor ?? transform.scale.value - 1;
 
-    letters.forEach((el, i) => {
-        const anim = createAnimation({
-            from,
-            to,
-            duration,
+    const anims = letters.map((el, i) =>
+        createAnimation({
+            from, to, duration,
             delay: i * delay,
-            easing: easing,
-            yoyo,
-            repeat,
-            onUpdate: (_, progress) => {
+            easing, yoyo, repeat,
+            onUpdate(_, progress) {
                 const { scale } = applyTransform(el, transform, progress);
                 el.style.marginRight = `${computeSpacing(scale, factor)}em`;
-            }
+            },
         })
-        list.push(anim);
-    });
+    );
+
+    const totalDuration = delay * (letters.length - 1) + duration;
+
     return {
-        pause() {
-            list.forEach(anim => anim.pause());
+        totalDuration,
+        update(localTime) {
+            anims.forEach((anim) => anim.update(localTime));
         },
-        play() {
-            list.forEach(anim => anim.resume());
-        },
-        kill() {
-            list.forEach(anim => anim.kill());
-        },
-        to(percent) {
-            list.forEach(anim => anim.to(percent));
-        }
-
-
-    }
+    };
 }
+
+export default SplitText;

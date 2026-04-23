@@ -11,8 +11,15 @@ class Timeline {
 
     }
 
-    add(config) {
+    add(...args) {
         // Convert config to animation object
+        const configs = args.flat().filter(Boolean);
+        configs.forEach(config => {
+            this.addOneAnim(config);
+        });
+        return this;
+    }
+    addOneAnim(config) {
         const anim = {
             start: this.totalDuration,
             anim: config,
@@ -21,7 +28,6 @@ class Timeline {
         if (isFinite(config.totalDuration)) {
             this.totalDuration += config.totalDuration;
         }
-        return this;
     }
     play() {
         this.isPaused = false;

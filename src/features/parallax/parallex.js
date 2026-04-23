@@ -1,58 +1,31 @@
-import engine from "../../core/engine.js";
-
 let items = [];
 let scrollY = 0;
-let ticking = false;
 
-
-function onScroll() {
+window.addEventListener("scroll", () => {
     scrollY = window.scrollY;
-
-    if (!ticking) {
-        requestAnimationFrame(() => {
-            ticking = false;
-        });
-        ticking = true;
-    }
-}
-
-window.addEventListener("scroll", onScroll);
-
-const ParallaxSystem = {
-    update() {
-        for (const item of items) {
-            const offset = scrollY * item.speed;
-            item.el.style.transform = `
-                translateY(${offset}px)
-            `;
-        }
-    }
-};
-engine.add(ParallaxSystem);
+});
 
 function parallax(selector, config = {}) {
-    const element = document.querySelector(selector);
-    if (!element) return;
+    const el = document.querySelector(selector);
+    if (!el) return;
 
-    items.push({
-        el: element,
-        speed: config.speed ?? 0.3
-    });
+    const item = { el, speed: config.speed ?? 0.3 };
+    items.push(item);
 
     return {
+        totalDuration: Infinity,          // scroll-driven, runs forever
+        update(_localTime) {
+            el.style.transform = `translateY(${scrollY * item.speed}px)`;
+        },
         kill() {
-            items = items.filter(i => i.el !== element);
-        }
+            items = items.filter((i) => i.el !== el);
+            el.style.transform = `translateY(0px)`;
+        },
     };
 }
-
 
 function clearParallax() {
     items = [];
 }
 
-export {
-    parallax,
-    ParallaxSystem,
-    clearParallax
-};
+export { parallax, clearParallax };
