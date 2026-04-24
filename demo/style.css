@@ -85,3 +85,11 @@ body {
 .control-btn:hover {
     background-color: #444;
 }
+
+.cursor {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(176, 92, 255);
+    border-radius: 5px;
+}
