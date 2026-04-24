@@ -1,3 +1,4 @@
+import morph from "../src/features/morph/morph.js";
 import Magnetix from "../src/index.js";
 
 const { Easings } = Magnetix;
@@ -59,9 +60,9 @@ const motion4 = Magnetix.splitText(".title", "chars", {
         rotate: 360,
     }
 });
-
+const motion5 = morph(".shape");
 // Add all sequences to the timeline
-timeline.add(motion, motion1, motion2, motion3, motion4);
+timeline.add(motion5, motion, motion1, motion2, motion3, motion4);
 
 // Play the timeline
 timeline.play();

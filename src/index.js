@@ -6,6 +6,7 @@ import splitText from "./features/split-text/split-text.js";
 import createAnimation from "./core/motion.js";
 import svgMotion from "./features/svg-motion/svg-motion.js";
 import Timeline from "./core/timeline.js";
+import morph from "./features/morph/morph.js";
 
 export const Magnetix = {
     Easings,
@@ -15,6 +16,8 @@ export const Magnetix = {
     splitText,
     createAnimation,
     svgMotion,
-    Timeline
+    Timeline,
+    morph
+
 }
 export default Magnetix;
