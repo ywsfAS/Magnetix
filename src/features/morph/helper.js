@@ -9,6 +9,31 @@ function pointsToPath(points) {
     }
     return d;
 }
+function normalize(from, targetLength) {
+    const result = [...from];
+
+    while (result.length < targetLength) {
+        const newPoints = [];
+
+        for (let i = 0; i < result.length; i++) {
+            const a = result[i];
+            const b = result[(i + 1) % result.length];
+
+            newPoints.push(a);
+
+            // insert midpoint
+            newPoints.push({
+                x: (a.x + b.x) / 2,
+                y: (a.y + b.y) / 2
+            });
+        }
+
+        result.length = 0;
+        result.push(...newPoints);
+    }
+
+    return result.slice(0, targetLength);
+}
 // return list of points eased from -> to shapes
 function interpolatePoints(from, to, t) {
     let result = [];
@@ -25,4 +50,4 @@ function interpolatePoints(from, to, t) {
     return result;
 
 }
-export { interpolatePoints, pointsToPath };
+export { interpolatePoints, pointsToPath, normalize };
