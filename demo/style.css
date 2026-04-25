@@ -43,6 +43,7 @@ body {
 }
 
 .box,
+.drag,
 .circle {
     width: 120px;
     height: 120px;
@@ -51,6 +52,28 @@ body {
 .box {
     border-radius: 12px;
     background-color: rgb(255, 101, 101);
+}
+
+.drag {
+    background-color: rgb(207, 255, 135);
+    border-radius: 5px;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 24px;
+}
+
+.unselectable {
+    user-select: none;
+    /* Standard syntax */
+    -webkit-user-select: none;
+    /* Chrome, Safari, Opera */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
 }
 
 .circle {

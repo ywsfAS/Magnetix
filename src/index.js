@@ -8,6 +8,7 @@ import svgMotion from "./features/svg-motion/svg-motion.js";
 import Timeline from "./core/timeline.js";
 import morph from "./features/morph/morph.js";
 import cursor from "./features/cursor-follow/cursor.js";
+import drag from "./features/dragging/drag.js";
 
 export const Magnetix = {
     Easings,
@@ -20,6 +21,6 @@ export const Magnetix = {
     Timeline,
     morph,
     cursor,
-
+    drag,
 }
 export default Magnetix;

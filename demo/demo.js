@@ -61,8 +61,9 @@ const motion4 = Magnetix.splitText(".title", "chars", {
 });
 const motion5 = Magnetix.morph(".shape");
 const motion6 = Magnetix.cursor(".cursor", { speed: 0.09 });
+const motion7 = Magnetix.drag(".drag");
 // Add all sequences to the timeline
-timeline.add(motion6, motion5, motion, motion1, motion2, motion3, motion4);
+timeline.add(motion7, motion6, motion5, motion, motion1, motion2, motion3, motion4);
 
 // Play the timeline
 timeline.play();

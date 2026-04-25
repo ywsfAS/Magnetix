@@ -5,7 +5,6 @@ import { interpolatePoints, normalize, pointsToPath } from "./helper.js";
 
 function morph(selector, config = {}) {
     const element = document.querySelector(selector);
-    console.log(element);
     const { from, to, delay, easing, duration, start, end } = { ...config, ...DEFAULT_MORPH_CONFIG };
 
     const normalizedFrom = normalize(from, 20);
