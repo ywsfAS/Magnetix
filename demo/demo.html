@@ -9,10 +9,6 @@
 </head>
 
 <body>
-
-    <div class="scroll-progress">
-        <div class="scroll-progress-fill" id="scrollFill"></div>
-    </div>
     <!-- sidebar -->
     <nav class="sidebar">
         <div class="sidebar-logo">
@@ -20,7 +16,7 @@
                 <div class="logo-mark"><span>Magnetix
                     </span>
                 </div>
-                <svg width="120" height="24" viewBox="0 0 120 24" fill="none">
+                <svg width="120" height="24" viewBox="0 0 120 24" fill="none" class="logo-svg">
                     <rect x="6" y="8" width="8" height="8" transform="rotate(45 10 12)" fill="white" opacity="0.9" />
                     <rect x="56" y="7" width="10" height="10" transform="rotate(45 61 12)" fill="white" />
                     <rect x="106" y="8" width="8" height="8" transform="rotate(45 110 12)" fill="white" opacity="0.9" />
@@ -67,7 +63,7 @@
 
         <section id="hero">
 
-            <div class="badge"><span class="badge-dot"></span> Production Ready — v1.0.0</div>
+            <div class="badge"><span class="badge-dot"></span>v1.0.0</div>
 
             <h1 class="hero-title">
                 Magnetix.js
@@ -82,7 +78,12 @@
             <div class="hero-ctas">
                 <a class="btn btn-primary" href="#install">Get Started</a>
                 <a class="btn btn-ghost" href="#api">API Reference →</a>
-                <a class="btn btn-ghost" href="#playground">Playground</a>
+                <a class="btn btn-ghost github" href="https://github.com/ywsfAS/Magnetix" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 50 50">
+                        <path
+                            d="M17.791,46.836C18.502,46.53,19,45.823,19,45v-5.4c0-0.197,0.016-0.402,0.041-0.61C19.027,38.994,19.014,38.997,19,39 c0,0-3,0-3.6,0c-1.5,0-2.8-0.6-3.4-1.8c-0.7-1.3-1-3.5-2.8-4.7C8.9,32.3,9.1,32,9.7,32c0.6,0.1,1.9,0.9,2.7,2c0.9,1.1,1.8,2,3.4,2 c2.487,0,3.82-0.125,4.622-0.555C21.356,34.056,22.649,33,24,33v-0.025c-5.668-0.182-9.289-2.066-10.975-4.975 c-3.665,0.042-6.856,0.405-8.677,0.707c-0.058-0.327-0.108-0.656-0.151-0.987c1.797-0.296,4.843-0.647,8.345-0.714 c-0.112-0.276-0.209-0.559-0.291-0.849c-3.511-0.178-6.541-0.039-8.187,0.097c-0.02-0.332-0.047-0.663-0.051-0.999 c1.649-0.135,4.597-0.27,8.018-0.111c-0.079-0.5-0.13-1.011-0.13-1.543c0-1.7,0.6-3.5,1.7-5c-0.5-1.7-1.2-5.3,0.2-6.6 c2.7,0,4.6,1.3,5.5,2.1C21,13.4,22.9,13,25,13s4,0.4,5.6,1.1c0.9-0.8,2.8-2.1,5.5-2.1c1.5,1.4,0.7,5,0.2,6.6c1.1,1.5,1.7,3.2,1.6,5 c0,0.484-0.045,0.951-0.11,1.409c3.499-0.172,6.527-0.034,8.204,0.102c-0.002,0.337-0.033,0.666-0.051,0.999 c-1.671-0.138-4.775-0.28-8.359-0.089c-0.089,0.336-0.197,0.663-0.325,0.98c3.546,0.046,6.665,0.389,8.548,0.689 c-0.043,0.332-0.093,0.661-0.151,0.987c-1.912-0.306-5.171-0.664-8.879-0.682C35.112,30.873,31.557,32.75,26,32.969V33 c2.6,0,5,3.9,5,6.6V45c0,0.823,0.498,1.53,1.209,1.836C41.37,43.804,48,35.164,48,25C48,12.318,37.683,2,25,2S2,12.318,2,25 C2,35.164,8.63,43.804,17.791,46.836z">
+                        </path>
+                    </svg></a>
             </div>
 
             <div class="hero-demo">
@@ -115,9 +116,8 @@
                     <button class="copy-btn" data-copy='import Magnetix from "./src/index.js";'>Copy</button>
                 </div>
                 <pre><span class="kw">import</span> Magnetix <span class="kw">from</span> <span class="str">"./src/index.js"</span><span class="op">;</span>
- 
-                <span class="cmt">// Or destructure what you need</span>
-                <span class="kw">const</span> <span class="op">{</span> <span class="prop">Easings</span><span class="op">,</span> <span class="prop">Timeline</span><span class="op">,</span> <span class="prop">svgMotion</span> <span class="op">}</span> <span class="op">=</span> Magnetix<span class="op">;</span></pre>
+<span class="cmt">// Or destructure what you need</span>
+<span class="kw">const</span> <span class="op">{</span> <span class="prop">Easings</span><span class="op">,</span> <span class="prop">Timeline</span><span class="op">,</span> <span class="prop">svgMotion</span> <span class="op">}</span> <span class="op">=</span> Magnetix<span class="op">;</span></pre>
             </div>
 
             <p class="install-note">
@@ -185,17 +185,17 @@
                     <button class="copy-btn">Copy</button>
                 </div>
                 <pre><span class="cmt">// Step 1: Create motions (they don't run yet)</span>
-                    <span class="kw">const</span> m1 <span class="op">=</span> Magnetix<span class="op">.</span><span class="fn">svgMotion</span>(<span class="str">".box"</span><span class="op">,</span> <span class="op">{</span> <span class="op">...</span> <span class="op">}</span>)<span class="op">;</span>
-                    <span class="kw">const</span> m2 <span class="op">=</span> Magnetix<span class="op">.</span><span class="fn">magnetic</span>(<span class="str">".circle"</span>)<span class="op">;</span>
+<span class="kw">const</span> m1 <span class="op">=</span> Magnetix<span class="op">.</span><span class="fn">svgMotion</span>(<span class="str">".box"</span><span class="op">,</span> <span class="op">{</span> <span class="op">...</span> <span class="op">}</span>)<span class="op">;</span>
+<span class="kw">const</span> m2 <span class="op">=</span> Magnetix<span class="op">.</span><span class="fn">magnetic</span>(<span class="str">".circle"</span>)<span class="op">;</span>
 
-                    <span class="cmt">// Step 2: Add to timeline</span>
-                    <span class="kw">const</span> timeline <span class="op">=</span> <span class="kw">new</span> Magnetix<span class="op">.</span><span class="fn">Timeline</span>()<span class="op">;</span>
-                    timeline<span class="op">.</span><span class="fn">add</span>(m1<span class="op">,</span> m2)<span class="op">;</span>
+<span class="cmt">// Step 2: Add to timeline</span>
+<span class="kw">const</span> timeline <span class="op">=</span> <span class="kw">new</span> Magnetix<span class="op">.</span><span class="fn">Timeline</span>()<span class="op">;</span>
+timeline<span class="op">.</span><span class="fn">add</span>(m1<span class="op">,</span> m2)<span class="op">;</span>
 
-                    <span class="cmt">// Step 3: Control everything at once</span>
-                    timeline<span class="op">.</span><span class="fn">play</span>()<span class="op">;</span>
-                    timeline<span class="op">.</span><span class="fn">pause</span>()<span class="op">;</span>
-                    timeline<span class="op">.</span><span class="fn">seek</span>(<span class="num">0.5</span>)<span class="op">;</span>  <span class="cmt">// jump to 50%</span></pre>
+<span class="cmt">// Step 3: Control everything at once</span>
+timeline<span class="op">.</span><span class="fn">play</span>()<span class="op">;</span>
+timeline<span class="op">.</span><span class="fn">pause</span>()<span class="op">;</span>
+timeline<span class="op">.</span><span class="fn">seek</span>(<span class="num">0.5</span>)<span class="op">;</span>  <span class="cmt">// jump to 50%</span></pre>
             </div>
         </section>
 
@@ -224,9 +224,12 @@
                         <div class="code-dot"></div>
                     </div>
                     <span class="code-lang">javascript</span>
-                    <button class="copy-btn" data-copy='const motion = Magnetix.magnetic(".circle");'>Copy</button>
+                    <button class="copy-btn">Copy</button>
                 </div>
-                <pre><span class="kw">const</span> motion <span class="op">=</span> Magnetix<span class="op">.</span><span class="fn">magnetic</span>(<span class="str">".circle"</span>)<span class="op">;</span></pre>
+                <pre><span class="kw">const</span> motion <span class="op">=</span> Magnetix<span class="op">.</span><span class="fn">magnetic</span>(<span class="str">".circle"</span><span class="op">,</span> <span class="op">{</span>
+<span class="prop">strength</span><span class="op">:</span> <span class="num">0.5</span><span class="op">,</span>
+<span class="prop">radius</span><span class="op">:</span> <span class="num">100</span>
+<span class="op">}</span>)<span class="op">;</span></pre>
             </div>
 
             <table class="api-table mt-md">
@@ -285,16 +288,16 @@
                     <button class="copy-btn">Copy</button>
                 </div>
                 <pre><span class="kw">const</span> motion <span class="op">=</span> Magnetix<span class="op">.</span><span class="fn">svgMotion</span>(<span class="str">".box"</span><span class="op">,</span> <span class="op">{</span>
-                    <span class="prop">duration</span><span class="op">:</span> <span class="num">12000</span><span class="op">,</span>
-                    <span class="prop">path</span><span class="op">: [</span>
-                    <span class="op">{</span> <span class="prop">from</span><span class="op">: [</span><span class="num">0</span><span class="op">,</span> <span class="num">0</span><span class="op">],</span> <span class="prop">p1</span><span class="op">: [</span><span class="num">300</span><span class="op">,</span> <span class="op">-</span><span class="num">200</span><span class="op">],</span> <span class="prop">p2</span><span class="op">: [</span><span class="num">600</span><span class="op">,</span> <span class="num">200</span><span class="op">],</span> <span class="prop">to</span><span class="op">: [</span><span class="num">300</span><span class="op">,</span> <span class="num">400</span><span class="op">]</span> <span class="op">},</span>
-                    <span class="op">{</span> <span class="prop">from</span><span class="op">: [</span><span class="num">300</span><span class="op">,</span> <span class="num">400</span><span class="op">],</span> <span class="prop">p1</span><span class="op">: [</span><span class="num">0</span><span class="op">,</span> <span class="num">600</span><span class="op">],</span> <span class="prop">p2</span><span class="op">: [</span><span class="op">-</span><span class="num">300</span><span class="op">,</span> <span class="num">200</span><span class="op">],</span> <span class="prop">to</span><span class="op">: [</span><span class="num">0</span><span class="op">,</span> <span class="num">0</span><span class="op">]</span> <span class="op">},</span>
-                    <span class="op">],</span>
-                    <span class="prop">transform</span><span class="op">: {</span>
-                    <span class="prop">rotate</span><span class="op">: {</span> <span class="prop">value</span><span class="op">:</span> <span class="num">720</span><span class="op">,</span> <span class="prop">easing</span><span class="op">:</span> Easings<span class="op">.</span><span class="prop">easeInOutQuad</span> <span class="op">},</span>
-                    <span class="prop">scale</span><span class="op">:  {</span> <span class="prop">value</span><span class="op">:</span> <span class="num">1.8</span><span class="op">,</span> <span class="prop">easing</span><span class="op">:</span> Easings<span class="op">.</span><span class="prop">easeInOutQuad</span> <span class="op">},</span>
-                    <span class="op">}</span>
-                    <span class="op">}</span>)<span class="op">;</span></pre>
+<span class="prop">duration</span><span class="op">:</span> <span class="num">12000</span><span class="op">,</span>
+<span class="prop">path</span><span class="op">: [</span>
+<span class="op">{</span> <span class="prop">from</span><span class="op">: [</span><span class="num">0</span><span class="op">,</span> <span class="num">0</span><span class="op">],</span> <span class="prop">p1</span><span class="op">: [</span><span class="num">300</span><span class="op">,</span> <span class="op">-</span><span class="num">200</span><span class="op">],</span> <span class="prop">p2</span><span class="op">: [</span><span class="num">600</span><span class="op">,</span> <span class="num">200</span><span class="op">],</span> <span class="prop">to</span><span class="op">: [</span><span class="num">300</span><span class="op">,</span> <span class="num">400</span><span class="op">]</span> <span class="op">},</span>
+<span class="op">{</span> <span class="prop">from</span><span class="op">: [</span><span class="num">300</span><span class="op">,</span> <span class="num">400</span><span class="op">],</span> <span class="prop">p1</span><span class="op">: [</span><span class="num">0</span><span class="op">,</span> <span class="num">600</span><span class="op">],</span> <span class="prop">p2</span><span class="op">: [</span><span class="op">-</span><span class="num">300</span><span class="op">,</span> <span class="num">200</span><span class="op">],</span> <span class="prop">to</span><span class="op">: [</span><span class="num">0</span><span class="op">,</span> <span class="num">0</span><span class="op">]</span> <span class="op">},</span>
+<span class="op">],</span>
+<span class="prop">transform</span><span class="op">: {</span>
+<span class="prop">rotate</span><span class="op">: {</span> <span class="prop">value</span><span class="op">:</span> <span class="num">720</span><span class="op">,</span> <span class="prop">easing</span><span class="op">:</span> Easings<span class="op">.</span><span class="prop">easeInOutQuad</span> <span class="op">},</span>
+<span class="prop">scale</span><span class="op">:  {</span> <span class="prop">value</span><span class="op">:</span> <span class="num">1.8</span><span class="op">,</span> <span class="prop">easing</span><span class="op">:</span> Easings<span class="op">.</span><span class="prop">easeInOutQuad</span> <span class="op">},</span>
+<span class="op">}</span>
+<span class="op">}</span>)<span class="op">;</span></pre>
             </div>
 
             <table class="api-table mt-md">
@@ -356,16 +359,20 @@
                     <button class="copy-btn">Copy</button>
                 </div>
                 <pre><span class="kw">const</span> motion <span class="op">=</span> Magnetix<span class="op">.</span><span class="fn">splitText</span>(<span class="str">".title"</span><span class="op">,</span> <span class="str">"chars"</span><span class="op">,</span> <span class="op">{</span>
-                    <span class="prop">from</span><span class="op">:</span> <span class="num">0</span><span class="op">,</span>
-                    <span class="prop">to</span><span class="op">:</span> <span class="num">100</span><span class="op">,</span>
-                    <span class="prop">easing</span><span class="op">:</span> Easings<span class="op">.</span><span class="prop">easeInOutCubic</span><span class="op">,</span>
-                    <span class="prop">delay</span><span class="op">:</span> <span class="num">100</span><span class="op">,</span>          <span class="cmt">// stagger delay between chars (ms)</span>
-                    <span class="prop">duration</span><span class="op">:</span> <span class="num">1200</span><span class="op">,</span>
-                    <span class="prop">transform</span><span class="op">: {</span>
-                    <span class="prop">scale</span><span class="op">:</span> <span class="num">2</span><span class="op">,</span>
-                    <span class="prop">rotate</span><span class="op">:</span> <span class="num">360</span><span class="op">,</span>
-                    <span class="op">}</span>
-                    <span class="op">}</span>)<span class="op">;</span></pre>
+<span class="prop">from</span><span class="op">:</span> <span class="num">0</span><span class="op">,</span>
+<span class="prop">to</span><span class="op">:</span> <span class="num">100</span><span class="op">,</span>
+<span class="prop">easing</span><span class="op">:</span> Easings<span class="op">.</span><span class="prop">easeInOutCubic</span><span class="op">,</span> <span class="prop">delay</span><span class="op">:</span> <span class="num">100</span><span class="op">,</span>          <span class="cmt">// stagger delay between chars (ms)</span>
+<span class="prop">duration</span><span class="op">:</span> <span class="num">1200</span><span class="op">,</span> <span class="prop">transform</span><span class="op">:</span> <span class="op">{</span>
+<span class="prop">scale</span><span class="op">:</span> <span class="op">{</span>
+<span class="prop">value</span><span class="op">:</span> <span class="num">2</span><span class="op">,</span>
+<span class="prop">easing</span><span class="op">:</span> Easings<span class="op">.</span><span class="prop">easeOutBack</span>
+<span class="op">}</span><span class="op">,</span>
+<span class="prop">rotate</span><span class="op">:</span> <span class="op">{</span>
+<span class="prop">value</span><span class="op">:</span> <span class="num">360</span><span class="op">,</span>
+<span class="prop">easing</span><span class="op">:</span> Easings<span class="op">.</span><span class="prop">easeInOutCubic</span>
+<span class="op">}</span>
+<span class="op">}</span>
+<span class="op">}</span>)<span class="op">;</span></pre>
             </div>
 
             <table class="api-table mt-md">
@@ -421,7 +428,6 @@
                     </svg>
                 </div>
             </div>
-
             <div class="code-block">
                 <div class="code-header">
                     <div class="code-dots">
@@ -430,10 +436,50 @@
                         <div class="code-dot"></div>
                     </div>
                     <span class="code-lang">javascript</span>
-                    <button class="copy-btn" data-copy='const motion = Magnetix.morph(".shape");'>Copy</button>
+                    <button class="copy-btn">Copy</button>
                 </div>
-                <pre><span class="kw">const</span> motion <span class="op">=</span> Magnetix<span class="op">.</span><span class="fn">morph</span>(<span class="str">".shape"</span>)<span class="op">;</span></pre>
+                <pre><span class="kw">const</span> motion <span class="op">=</span> Magnetix<span class="op">.</span><span class="fn">morph</span>(<span class="str">".shape"</span><span class="op">,</span> <span class="op">{</span>
+<span class="prop">from</span><span class="op">:</span> <span class="op">[</span>
+<span class="op">{</span> <span class="prop">x</span><span class="op">:</span> <span class="num">20</span><span class="op">,</span> <span class="prop">y</span><span class="op">:</span> <span class="num">20</span> <span class="op">}</span><span class="op">,</span>
+<span class="op">{</span> <span class="prop">x</span><span class="op">:</span> <span class="num">80</span><span class="op">,</span> <span class="prop">y</span><span class="op">:</span> <span class="num">20</span> <span class="op">}</span><span class="op">,</span>
+<span class="op">{</span> <span class="prop">x</span><span class="op">:</span> <span class="num">50</span><span class="op">,</span> <span class="prop">y</span><span class="op">:</span> <span class="num">80</span> <span class="op">}</span>
+<span class="op">]</span><span class="op">,</span>
+<span class="prop">to</span><span class="op">:</span> <span class="op">[</span>
+<span class="op">{</span> <span class="prop">x</span><span class="op">:</span> <span class="num">30</span><span class="op">,</span> <span class="prop">y</span><span class="op">:</span> <span class="num">10</span> <span class="op">}</span><span class="op">,</span>
+<span class="op">{</span> <span class="prop">x</span><span class="op">:</span> <span class="num">90</span><span class="op">,</span> <span class="prop">y</span><span class="op">:</span> <span class="num">50</span> <span class="op">}</span><span class="op">,</span>
+<span class="op">{</span> <span class="prop">x</span><span class="op">:</span> <span class="num">20</span><span class="op">,</span> <span class="prop">y</span><span class="op">:</span> <span class="num">90</span> <span class="op">}</span>
+<span class="op">]</span><span class="op">,</span>
+<span class="prop">pointsCount</span><span class="op">:</span> <span class="num">3</span>
+<span class="op">}</span>)<span class="op">;</span></pre>
             </div>
+
+            <table class="api-table mt-md">
+                <tr>
+                    <th>Option</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>from/to</code></td>
+                    <td class="type">array</td>
+                    <td>array of points</td>
+                </tr>
+                <tr>
+                    <td><code>delay</code></td>
+                    <td class="type">number</td>
+                    <td>Stagger delay between each unit in ms</td>
+                </tr>
+                <tr>
+                    <td><code>duration</code></td>
+                    <td class="type">number</td>
+                    <td>Duration per unit animation in ms</td>
+                </tr>
+                <tr>
+                    <td><code>pointsCount</code></td>
+                    <td class="type">number</td>
+                    <td>number of points used in the shape</td>
+                </tr>
+            </table>
         </section>
 
         <section id="cursor">
@@ -464,12 +510,11 @@
                         <div class="code-dot"></div>
                     </div>
                     <span class="code-lang">javascript</span>
-                    <button class="copy-btn"
-                        data-copy='const motion = Magnetix.cursor(".cursor", { speed: 0.09 });'>Copy</button>
+                    <button class="copy-btn">Copy</button>
                 </div>
                 <pre><span class="kw">const</span> motion <span class="op">=</span> Magnetix<span class="op">.</span><span class="fn">cursor</span>(<span class="str">".cursor"</span><span class="op">,</span> <span class="op">{</span>
-                        <span class="prop">speed</span><span class="op">:</span> <span class="num">0.09</span>    <span class="cmt">// lower = more lag (0.01 – 1.0)</span>
-                        <span class="op">}</span>)<span class="op">;</span></pre>
+<span class="prop">speed</span><span class="op">:</span> <span class="num">0.09</span>    <span class="cmt">// lower = more lag (0.01 – 1.0)</span>
+<span class="op">}</span>)<span class="op">;</span></pre>
             </div>
 
             <table class="api-table mt-md">
@@ -512,9 +557,11 @@
                         <div class="code-dot"></div>
                     </div>
                     <span class="code-lang">javascript</span>
-                    <button class="copy-btn" data-copy='const motion = Magnetix.drag(".drag");'>Copy</button>
+                    <button class="copy-btn">Copy</button>
                 </div>
-                <pre><span class="kw">const</span> motion <span class="op">=</span> Magnetix<span class="op">.</span><span class="fn">drag</span>(<span class="str">".drag"</span>)<span class="op">;</span></pre>
+                <pre><span class="kw">const</span> motion <span class="op">=</span> Magnetix<span class="op">.</span><span class="fn">drag</span>(<span class="str">".drag"</span><span class="op">,</span> <span class="op">{</span>
+<span class="prop">speed</span><span class="op">:</span> <span class="num">1</span>
+<span class="op">}</span>)<span class="op">;</span></pre>
             </div>
         </section>
 
@@ -683,14 +730,12 @@
                 <pre><span class="kw">const</span> timeline <span class="op">=</span> <span class="kw">new</span> Magnetix<span class="op">.</span><span class="fn">Timeline</span>()<span class="op">;</span>
 
                 timeline<span class="op">.</span><span class="fn">add</span>(
-                motion<span class="op">,</span>   <span class="cmt">// svgMotion</span>
-                motion1<span class="op">,</span>  <span class="cmt">// svgMotion #2</span>
-                motion2<span class="op">,</span>  <span class="cmt">// svgMotion #3</span>
-                motion3<span class="op">,</span>  <span class="cmt">// magnetic</span>
-                motion4<span class="op">,</span>  <span class="cmt">// splitText</span>
-                motion5<span class="op">,</span>  <span class="cmt">// morph</span>
-                motion6<span class="op">,</span>  <span class="cmt">// cursor</span>
-                motion7<span class="op">,</span>  <span class="cmt">// drag</span>
+                svgAnimation<span class="op">,</span>   <span class="cmt">// svgMotion</span>
+                magneticAnimation<span class="op">,</span>  <span class="cmt">// magnetic</span>
+                splitTextAnimation<span class="op">,</span>  <span class="cmt">// splitText</span>
+                morphAnimation<span class="op">,</span>  <span class="cmt">// morph</span>
+                cursorAnimation<span class="op">,</span>  <span class="cmt">// cursor</span>
+                dragAnimation<span class="op">,</span>  <span class="cmt">// drag</span>
                 )<span class="op">;</span>
 
                 timeline<span class="op">.</span><span class="fn">play</span>()<span class="op">;</span>

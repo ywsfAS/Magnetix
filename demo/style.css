@@ -6,6 +6,10 @@
     padding: 0;
 }
 
+svg {
+    overflow: visible !important;
+}
+
 :root {
     --bg: #23272f;
     --bg2: #0e0e1a;
@@ -36,6 +40,7 @@
     --anim-bg: #0000003d;
     --progress-bar: #ffffff29;
 
+
 }
 
 html {
@@ -49,7 +54,6 @@ body {
     color: var(--text);
     display: flex;
     min-height: 100vh;
-    overflow-x: hidden;
 }
 
 .sidebar {
@@ -62,8 +66,8 @@ body {
     background: var(--bg);
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
     z-index: 100;
+    padding: 10px 13px;
 }
 
 .sidebar-logo {
@@ -132,7 +136,7 @@ body {
 .nav-dot {
     width: 6px;
     height: 6px;
-    border-radius: 50%;
+    transform: rotate(45deg);
     background: var(--border);
     flex-shrink: 0;
     transition: background .2s;
@@ -155,7 +159,6 @@ body {
 
 section {
     padding: 40px 30px;
-    border-bottom: 1px solid var(--border);
     max-width: 1000px;
 }
 
@@ -245,7 +248,7 @@ section:last-child {
     font-size: 13px;
     font-weight: 500;
     cursor: pointer;
-    transition: all .2s;
+    transition: all .3s ease-in;
     border: none;
     text-decoration: none;
 }
@@ -270,6 +273,11 @@ section:last-child {
 .btn-ghost:hover {
     background-color: var(--btn-hover);
     transform: translateY(-1px);
+}
+
+
+.btn-ghost.github:hover {
+    background-color: var(--accent2);
 }
 
 .hero-demo {
@@ -690,14 +698,14 @@ pre {
 
 .split-word {
     font-family: var(--font-head);
-    font-size: 36px;
+    font-size: var(--text-xl);
     font-weight: 800;
     color: #fff;
     display: flex;
     gap: 0;
     letter-spacing: -1px;
+    margin-bottom: 20px;
 }
-
 
 #demo-cursor-stage {
     height: 180px;
@@ -1111,22 +1119,6 @@ pre {
     line-height: 1.6;
 }
 
-.scroll-progress {
-    position: fixed;
-    top: 0;
-    left: var(--sidebar-w);
-    right: 0;
-    height: 2px;
-    background: var(--border);
-    z-index: 200;
-}
-
-.scroll-progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
-    width: 0%;
-    transition: width .1s;
-}
 
 .footer {
     padding: 48px 64px;
@@ -1143,17 +1135,18 @@ pre {
 }
 
 ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    width: 9px;
+
 }
 
-::-webkit-scrollbar-track {
-    background: transparent;
-}
 
 ::-webkit-scrollbar-thumb {
-    background: var(--border);
+    background-color: #0d505f;
     border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--btn-hover);
 }
 
 .divider {
@@ -1180,4 +1173,19 @@ pre {
     align-items: center;
     justify-content: center;
     width: fit-content;
+}
+
+.logo-svg {
+    position: relative;
+    z-index: 999;
+}
+
+@media (max-width:1000px) {
+    .sidebar {
+        display: none;
+    }
+
+    .main {
+        margin-left: 0;
+    }
 }

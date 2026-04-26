@@ -148,6 +148,10 @@ const btns = document.querySelectorAll(".copy-btn");
 btns.forEach((btn) => {
     btn.addEventListener('click', () => {
         const code = btn.closest('.code-block').querySelector("pre").innerText;
+        btn.textContent = 'copied';
+        setTimeout(() => {
+            btn.textContent = 'copy';
+        }, 3000);
         navigator.clipboard.writeText(code);
     })
 })
@@ -165,3 +169,55 @@ links.forEach((el) => {
     })
 
 })
+// logo 
+const newTimeline = new Magnetix.Timeline();
+const logoMotion = Magnetix.svgMotion(".logo-svg", {
+    duration: 12000,
+    path: [
+        {
+            from: [0, 0],
+            p1: [0, 300],        // go down
+            p2: [600, 300],
+            to: [800, 50]        // reach far right top
+        },
+        {
+            from: [800, 50],
+            p1: [800, 50],
+            p2: [800, 50],
+            to: [800, 50],
+        },
+
+        {
+            from: [800, 50],
+            p1: [800, 50],
+            p2: [800, 50],
+            to: [800, 50],
+        },
+        {
+            from: [800, 50],
+            p1: [800, -200],    // go up
+            p2: [700, 200],
+            to: [500, 200]       // middle peak
+        },
+        {
+            from: [500, 200],
+            p1: [200, 200],
+            p2: [0, 100],
+            to: [0, 0]          // back to origin
+        }
+    ],
+
+    transform: {
+        rotate: {
+            value: 2880,
+            easing: Easings.easeInOutQuad
+        },
+        scale: {
+            value: 1.15,
+            easing: Easings.easeInOutQuad
+        }
+    }
+});
+newTimeline.add(logoMotion);
+newTimeline.play();
+//newTimeline.seek(0.5);
