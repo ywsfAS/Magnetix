@@ -5,10 +5,10 @@ import { interpolatePoints, normalize, pointsToPath } from "./helper.js";
 
 function morph(selector, config = {}) {
     const element = document.querySelector(selector);
-    const { from, to, delay, easing, duration, start, end } = { ...config, ...DEFAULT_MORPH_CONFIG };
+    const { from, to, delay, easing, duration, start, end, pointsCount } = { ...DEFAULT_MORPH_CONFIG, ...config };
 
-    const normalizedFrom = normalize(from, 20);
-    const normalizedTo = normalize(to, 20);
+    const normalizedFrom = normalize(from, pointsCount);
+    const normalizedTo = normalize(to, pointsCount);
     const anim = createAnimation({
         from: start,
         to: end,

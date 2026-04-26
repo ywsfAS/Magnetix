@@ -4,31 +4,1039 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magnetix API Simple Demo</title>
+    <title>Magnetix API docs</title>
     <link href="style.css" rel="stylesheet" />
 </head>
 
 <body>
-    <div class="container">
-        <h1 class="title">Magnetix API Demo</h1>
 
-        <div class="elements-wrapper">
-            <div class="box"></div>
-
-            <div class="circle"></div>
-        </div>
-        <div class="btn-container">
-            <button id="PauseBtn" class="control-btn">Pause</button>
-            <button id="seekBtn" class="control-btn">Seek to 0.5 (50%)</button>
-            <button id="PlayBtn" class="control-btn">Play</button>
-        </div>
+    <div class="scroll-progress">
+        <div class="scroll-progress-fill" id="scrollFill"></div>
     </div>
-    <svg viewBox="0 0 200 200" width="300" height="300">
-        <path class="shape" fill="#4f9cff" />
-    </svg>
-    <div class="cursor"></div>
-    <div class="drag unselectable">Drag me</div>
+    <!-- sidebar -->
+    <nav class="sidebar">
+        <div class="sidebar-logo">
+            <div class="logo-container">
+                <div class="logo-mark"><span>Magnetix
+                    </span>
+                </div>
+                <svg width="120" height="24" viewBox="0 0 120 24" fill="none">
+                    <rect x="6" y="8" width="8" height="8" transform="rotate(45 10 12)" fill="white" opacity="0.9" />
+                    <rect x="56" y="7" width="10" height="10" transform="rotate(45 61 12)" fill="white" />
+                    <rect x="106" y="8" width="8" height="8" transform="rotate(45 110 12)" fill="white" opacity="0.9" />
+                    <line x1="14" y1="12" x2="56" y2="12" stroke="white" stroke-width="1.5" opacity="0.7" />
+                    <line x1="66" y1="12" x2="106" y2="12" stroke="white" stroke-width="2" opacity="0.9" />
+                </svg>
+            </div>
+            <div class="logo-version">v1.0.0 — Motion Engine</div>
+        </div>
 
+        <div class="nav-group">
+            <div class="nav-label">Getting Started</div>
+            <a class="nav-item active" href="#hero"><span class="nav-dot"></span>Introduction</a>
+            <a class="nav-item" href="#install"><span class="nav-dot"></span>Installation</a>
+            <a class="nav-item" href="#core"><span class="nav-dot"></span>Core Concepts</a>
+        </div>
+
+        <div class="nav-group">
+            <div class="nav-label">Features</div>
+            <a class="nav-item" href="#magnetic"><span class="nav-dot"></span>Magnetic</a>
+            <a class="nav-item" href="#svgmotion"><span class="nav-dot"></span>SVG Motion</a>
+            <a class="nav-item" href="#splittext"><span class="nav-dot"></span>Split Text</a>
+            <a class="nav-item" href="#morph"><span class="nav-dot"></span>Morph</a>
+            <a class="nav-item" href="#cursor"><span class="nav-dot"></span>Cursor Follow</a>
+            <a class="nav-item" href="#drag"><span class="nav-dot"></span>Drag</a>
+            <a class="nav-item" href="#parallax"><span class="nav-dot"></span>Parallax</a>
+            <a class="nav-item" href="#reveal"><span class="nav-dot"></span>Reveal</a>
+        </div>
+
+        <div class="nav-group">
+            <div class="nav-label">Advanced</div>
+            <a class="nav-item" href="#timeline"><span class="nav-dot"></span>Timeline</a>
+            <a class="nav-item" href="#easings"><span class="nav-dot"></span>Easings</a>
+        </div>
+
+        <div class="nav-group">
+            <div class="nav-label">Reference</div>
+            <a class="nav-item" href="#api"><span class="nav-dot"></span>API Reference</a>
+            <a class="nav-item" href="#practices"><span class="nav-dot"></span>Best Practices</a>
+        </div>
+    </nav>
+
+    <main class="main">
+
+        <section id="hero">
+
+            <div class="badge"><span class="badge-dot"></span> Production Ready — v1.0.0</div>
+
+            <h1 class="hero-title">
+                Magnetix.js
+            </h1>
+
+            <p class="hero-sub">
+                Magnetix is a lightweight, composable motion engine for the web.
+                SVG path animation, magnetic interactions, timeline control, and rich text effects —
+                all unified under one clean API.
+            </p>
+
+            <div class="hero-ctas">
+                <a class="btn btn-primary" href="#install">Get Started</a>
+                <a class="btn btn-ghost" href="#api">API Reference →</a>
+                <a class="btn btn-ghost" href="#playground">Playground</a>
+            </div>
+
+            <div class="hero-demo">
+                <div class="hero-demo-label">Live Demo — SVG Path Motion + Magnetic</div>
+                <svg class="svg-path-demo" viewBox="0 0 800 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M400 140 C550 60 700 200 600 140 C500 80 300 220 200 140 C100 60 250 200 400 140 Z"
+                        stroke="rgba(124,110,255,.6)" stroke-width="1" stroke-dasharray="6 6" fill="none" />
+                    <path d="M200 80 C350 20 650 260 600 200 C550 140 250 100 400 60" stroke="rgba(255,107,157,.4)"
+                        stroke-width="1" stroke-dasharray="4 8" fill="none" />
+                </svg>
+                <div class="demo-orb"></div>
+                <div class="demo-orb demo-orb2"></div>
+                <div class="demo-orb demo-orb3"></div>
+            </div>
+        </section>
+
+        <section id="install">
+            <div class="section-tag">Setup</div>
+            <h2 class="section-title">Installation</h2>
+            <p class="section-desc">Import Magnetix directly via ES module. No build step required.</p>
+
+            <div class="code-block">
+                <div class="code-header">
+                    <div class="code-dots">
+                        <div class="code-dot"></div>
+                        <div class="code-dot"></div>
+                        <div class="code-dot"></div>
+                    </div>
+                    <span class="code-lang">javascript</span>
+                    <button class="copy-btn" data-copy='import Magnetix from "./src/index.js";'>Copy</button>
+                </div>
+                <pre><span class="kw">import</span> Magnetix <span class="kw">from</span> <span class="str">"./src/index.js"</span><span class="op">;</span>
+ 
+                <span class="cmt">// Or destructure what you need</span>
+                <span class="kw">const</span> <span class="op">{</span> <span class="prop">Easings</span><span class="op">,</span> <span class="prop">Timeline</span><span class="op">,</span> <span class="prop">svgMotion</span> <span class="op">}</span> <span class="op">=</span> Magnetix<span class="op">;</span></pre>
+            </div>
+
+            <p class="install-note">
+                Magnetix exports a single default object with all features. Every feature returns a <span
+                    class="inline-code">motion</span> object that integrates with the Timeline.
+            </p>
+        </section>
+
+        <section id="core">
+            <div class="section-tag">Foundations</div>
+            <h2 class="section-title">Core Concepts</h2>
+            <p class="section-desc">Three ideas power everything in Magnetix. Understand these and the rest clicks
+                instantly.</p>
+
+            <div class="feature-grid" style="grid-template-columns:1fr 1fr 1fr; margin-bottom:32px;">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="120" height="24" viewBox="0 0 120 24" fill="none">
+                            <rect x="6" y="8" width="8" height="8" transform="rotate(45 10 12)" fill="white" />
+                            <rect x="56" y="8" width="8" height="8" transform="rotate(45 60 12)" fill="white" />
+                            <rect x="106" y="8" width="8" height="8" transform="rotate(45 110 12)" fill="white" />
+                            <line x1="14" y1="12" x2="56" y2="12" stroke="white" stroke-width="2" />
+                            <line x1="64" y1="12" x2="106" y2="12" stroke="white" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="feature-name">Motion Objects</div>
+                    <div class="feature-desc">Every feature call returns a motion object. It doesn't run on its own —
+                        it's a
+                        description of what should happen.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="120" height="24" viewBox="0 0 120 24" fill="none">
+                            <polygon points="5,4 5,20 18,12" fill="white" />
+                            <line x1="30" y1="12" x2="110" y2="12" stroke="white" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="feature-name">Timeline Engine</div>
+                    <div class="feature-desc">The Timeline collects motion objects and orchestrates them. It controls
+                        play,
+                        pause, and seek across all animations simultaneously.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="120" height="24" viewBox="0 0 120 24" fill="none">
+                            <rect x="0" y="10" width="120" height="4" fill="white" />
+                            <circle cx="80" cy="12" r="6" fill="white" />
+                        </svg>
+                    </div>
+                    <div class="feature-name">Composability</div>
+                    <div class="feature-desc">Any number of motions can be added to a timeline. They run in parallel and
+                        are
+                        controlled as one unit.</div>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <div class="code-header">
+                    <div class="code-dots">
+                        <div class="code-dot"></div>
+                        <div class="code-dot"></div>
+                        <div class="code-dot"></div>
+                    </div>
+                    <span class="code-lang">javascript — full pattern</span>
+                    <button class="copy-btn">Copy</button>
+                </div>
+                <pre><span class="cmt">// Step 1: Create motions (they don't run yet)</span>
+                    <span class="kw">const</span> m1 <span class="op">=</span> Magnetix<span class="op">.</span><span class="fn">svgMotion</span>(<span class="str">".box"</span><span class="op">,</span> <span class="op">{</span> <span class="op">...</span> <span class="op">}</span>)<span class="op">;</span>
+                    <span class="kw">const</span> m2 <span class="op">=</span> Magnetix<span class="op">.</span><span class="fn">magnetic</span>(<span class="str">".circle"</span>)<span class="op">;</span>
+
+                    <span class="cmt">// Step 2: Add to timeline</span>
+                    <span class="kw">const</span> timeline <span class="op">=</span> <span class="kw">new</span> Magnetix<span class="op">.</span><span class="fn">Timeline</span>()<span class="op">;</span>
+                    timeline<span class="op">.</span><span class="fn">add</span>(m1<span class="op">,</span> m2)<span class="op">;</span>
+
+                    <span class="cmt">// Step 3: Control everything at once</span>
+                    timeline<span class="op">.</span><span class="fn">play</span>()<span class="op">;</span>
+                    timeline<span class="op">.</span><span class="fn">pause</span>()<span class="op">;</span>
+                    timeline<span class="op">.</span><span class="fn">seek</span>(<span class="num">0.5</span>)<span class="op">;</span>  <span class="cmt">// jump to 50%</span></pre>
+            </div>
+        </section>
+
+        <section id="magnetic">
+            <div class="section-tag">Feature</div>
+            <h2 class="section-title">Magnetic</h2>
+            <p class="section-desc">Attract elements toward the cursor with a configurable pull radius and spring
+                physics.
+                Great for buttons, icons, and interactive CTAs.</p>
+
+            <div class="demo-box">
+                <div class="demo-topbar">
+                    <span>magnetic.demo.js</span>
+                    <span class="demo-live-badge"><span class="demo-live-dot"></span>Live</span>
+                </div>
+                <div class="demo-stage" id="demo-magnetic">
+                    <div class="mag-circle" id="magCircle">Hover me</div>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <div class="code-header">
+                    <div class="code-dots">
+                        <div class="code-dot"></div>
+                        <div class="code-dot"></div>
+                        <div class="code-dot"></div>
+                    </div>
+                    <span class="code-lang">javascript</span>
+                    <button class="copy-btn" data-copy='const motion = Magnetix.magnetic(".circle");'>Copy</button>
+                </div>
+                <pre><span class="kw">const</span> motion <span class="op">=</span> Magnetix<span class="op">.</span><span class="fn">magnetic</span>(<span class="str">".circle"</span>)<span class="op">;</span></pre>
+            </div>
+
+            <table class="api-table mt-md">
+                <tr>
+                    <th>Option</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>selector</code></td>
+                    <td class="type">string</td>
+                    <td>CSS selector for the target element</td>
+                </tr>
+                <tr>
+                    <td><code>strength</code></td>
+                    <td class="type">number</td>
+                    <td>Pull force magnitude <span class="opt">(default: 0.5)</span></td>
+                </tr>
+                <tr>
+                    <td><code>radius</code></td>
+                    <td class="type">number</td>
+                    <td>Mouse proximity threshold in px <span class="opt">(default: 100)</span></td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="svgmotion">
+            <div class="section-tag">Feature</div>
+            <h2 class="section-title">SVG Motion</h2>
+            <p class="section-desc">Animate any element along a complex bezier path. Define multi-segment cubic curves
+                with
+                per-segment easing and transforms.</p>
+
+            <div class="demo-box">
+                <div class="demo-topbar">
+                    <span>svgMotion.demo.js</span>
+                    <span class="demo-live-badge"><span class="demo-live-dot"></span>Live — Bezier Path</span>
+                </div>
+                <div class="demo-stage" id="demo-svg-stage">
+                    <svg class="svg-path-trace" viewBox="0 0 400 200" fill="none">
+                        <path d="M200 100 C240 60 300 150 280 100 C260 50 150 130 120 100 C90 70 160 150 200 100 Z"
+                            stroke="rgba(124,110,255,.3)" stroke-width="1" stroke-dasharray="4 6" />
+                    </svg>
+                    <div class="svg-mover"></div>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <div class="code-header">
+                    <div class="code-dots">
+                        <div class="code-dot"></div>
+                        <div class="code-dot"></div>
+                        <div class="code-dot"></div>
+                    </div>
+                    <span class="code-lang">javascript</span>
+                    <button class="copy-btn">Copy</button>
+                </div>
+                <pre><span class="kw">const</span> motion <span class="op">=</span> Magnetix<span class="op">.</span><span class="fn">svgMotion</span>(<span class="str">".box"</span><span class="op">,</span> <span class="op">{</span>
+                    <span class="prop">duration</span><span class="op">:</span> <span class="num">12000</span><span class="op">,</span>
+                    <span class="prop">path</span><span class="op">: [</span>
+                    <span class="op">{</span> <span class="prop">from</span><span class="op">: [</span><span class="num">0</span><span class="op">,</span> <span class="num">0</span><span class="op">],</span> <span class="prop">p1</span><span class="op">: [</span><span class="num">300</span><span class="op">,</span> <span class="op">-</span><span class="num">200</span><span class="op">],</span> <span class="prop">p2</span><span class="op">: [</span><span class="num">600</span><span class="op">,</span> <span class="num">200</span><span class="op">],</span> <span class="prop">to</span><span class="op">: [</span><span class="num">300</span><span class="op">,</span> <span class="num">400</span><span class="op">]</span> <span class="op">},</span>
+                    <span class="op">{</span> <span class="prop">from</span><span class="op">: [</span><span class="num">300</span><span class="op">,</span> <span class="num">400</span><span class="op">],</span> <span class="prop">p1</span><span class="op">: [</span><span class="num">0</span><span class="op">,</span> <span class="num">600</span><span class="op">],</span> <span class="prop">p2</span><span class="op">: [</span><span class="op">-</span><span class="num">300</span><span class="op">,</span> <span class="num">200</span><span class="op">],</span> <span class="prop">to</span><span class="op">: [</span><span class="num">0</span><span class="op">,</span> <span class="num">0</span><span class="op">]</span> <span class="op">},</span>
+                    <span class="op">],</span>
+                    <span class="prop">transform</span><span class="op">: {</span>
+                    <span class="prop">rotate</span><span class="op">: {</span> <span class="prop">value</span><span class="op">:</span> <span class="num">720</span><span class="op">,</span> <span class="prop">easing</span><span class="op">:</span> Easings<span class="op">.</span><span class="prop">easeInOutQuad</span> <span class="op">},</span>
+                    <span class="prop">scale</span><span class="op">:  {</span> <span class="prop">value</span><span class="op">:</span> <span class="num">1.8</span><span class="op">,</span> <span class="prop">easing</span><span class="op">:</span> Easings<span class="op">.</span><span class="prop">easeInOutQuad</span> <span class="op">},</span>
+                    <span class="op">}</span>
+                    <span class="op">}</span>)<span class="op">;</span></pre>
+            </div>
+
+            <table class="api-table mt-md">
+                <tr>
+                    <th>Option</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>duration</code></td>
+                    <td class="type">number</td>
+                    <td>Total animation duration in ms</td>
+                </tr>
+                <tr>
+                    <td><code>path</code></td>
+                    <td class="type">array</td>
+                    <td>Array of bezier segments. Each has <code>from</code>, <code>p1</code>, <code>p2</code>,
+                        <code>to</code> as [x, y]
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>transform.rotate</code></td>
+                    <td class="type">object</td>
+                    <td><code>{ value, easing }</code> — total rotation in degrees</td>
+                </tr>
+                <tr>
+                    <td><code>transform.scale</code></td>
+                    <td class="type">object</td>
+                    <td><code>{ value, easing }</code> — scale multiplier</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="splittext">
+            <div class="section-tag">Feature</div>
+            <h2 class="section-title">Split Text</h2>
+            <p class="section-desc">Explode text into individual characters, words, or lines and animate each
+                independently
+                with staggered delays and custom transforms.</p>
+
+            <div class="demo-box">
+                <div class="demo-topbar">
+                    <span>splitText.demo.js</span>
+                    <span class="demo-live-badge"><span class="demo-live-dot"></span>Live — chars mode</span>
+                </div>
+                <div class="demo-stage" id="demo-splittext">
+                    <div class="split-word" id="splitWord">ENJOY MY LIBRARY</div>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <div class="code-header">
+                    <div class="code-dots">
+                        <div class="code-dot"></div>
+                        <div class="code-dot"></div>
+                        <div class="code-dot"></div>
+                    </div>
+                    <span class="code-lang">javascript</span>
+                    <button class="copy-btn">Copy</button>
+                </div>
+                <pre><span class="kw">const</span> motion <span class="op">=</span> Magnetix<span class="op">.</span><span class="fn">splitText</span>(<span class="str">".title"</span><span class="op">,</span> <span class="str">"chars"</span><span class="op">,</span> <span class="op">{</span>
+                    <span class="prop">from</span><span class="op">:</span> <span class="num">0</span><span class="op">,</span>
+                    <span class="prop">to</span><span class="op">:</span> <span class="num">100</span><span class="op">,</span>
+                    <span class="prop">easing</span><span class="op">:</span> Easings<span class="op">.</span><span class="prop">easeInOutCubic</span><span class="op">,</span>
+                    <span class="prop">delay</span><span class="op">:</span> <span class="num">100</span><span class="op">,</span>          <span class="cmt">// stagger delay between chars (ms)</span>
+                    <span class="prop">duration</span><span class="op">:</span> <span class="num">1200</span><span class="op">,</span>
+                    <span class="prop">transform</span><span class="op">: {</span>
+                    <span class="prop">scale</span><span class="op">:</span> <span class="num">2</span><span class="op">,</span>
+                    <span class="prop">rotate</span><span class="op">:</span> <span class="num">360</span><span class="op">,</span>
+                    <span class="op">}</span>
+                    <span class="op">}</span>)<span class="op">;</span></pre>
+            </div>
+
+            <table class="api-table mt-md">
+                <tr>
+                    <th>Option</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>mode</code></td>
+                    <td class="type">string</td>
+                    <td><code>"chars"</code> / <code>"words"</code> / <code>"lines"</code></td>
+                </tr>
+                <tr>
+                    <td><code>delay</code></td>
+                    <td class="type">number</td>
+                    <td>Stagger delay between each unit in ms</td>
+                </tr>
+                <tr>
+                    <td><code>duration</code></td>
+                    <td class="type">number</td>
+                    <td>Duration per unit animation in ms</td>
+                </tr>
+                <tr>
+                    <td><code>transform</code></td>
+                    <td class="type">object</td>
+                    <td>Scale, rotate, translateY per character</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="morph">
+            <div class="section-tag">Feature</div>
+            <h2 class="section-title">Morph</h2>
+            <p class="section-desc">Smoothly transition between SVG path shapes. Ideal for blob backgrounds, logo
+                transitions, and icon animations.</p>
+
+            <div class="demo-box">
+                <div class="demo-topbar">
+                    <span>morph.demo.js</span>
+                    <span class="demo-live-badge"><span class="demo-live-dot"></span>Live — SVG morphing</span>
+                </div>
+                <div class="demo-stage" id="demo-morph-stage">
+                    <svg class="morph-svg" viewBox="0 0 120 120">
+                        <defs>
+                            <linearGradient id="morphGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:var(--accent)" />
+                                <stop offset="100%" style="stop-color:var(--accent2)" />
+                            </linearGradient>
+                        </defs>
+                        <path class="morph-path"
+                            d="M60,10 C90,10 110,30 110,60 C110,90 90,110 60,110 C30,110 10,90 10,60 C10,30 30,10 60,10 Z" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <div class="code-header">
+                    <div class="code-dots">
+                        <div class="code-dot"></div>
+                        <div class="code-dot"></div>
+                        <div class="code-dot"></div>
+                    </div>
+                    <span class="code-lang">javascript</span>
+                    <button class="copy-btn" data-copy='const motion = Magnetix.morph(".shape");'>Copy</button>
+                </div>
+                <pre><span class="kw">const</span> motion <span class="op">=</span> Magnetix<span class="op">.</span><span class="fn">morph</span>(<span class="str">".shape"</span>)<span class="op">;</span></pre>
+            </div>
+        </section>
+
+        <section id="cursor">
+            <div class="section-tag">Feature</div>
+            <h2 class="section-title">Cursor Follow</h2>
+            <p class="section-desc">Attach a custom cursor element that follows the mouse with configurable lag,
+                creating a
+                silky trailing effect.</p>
+
+            <div class="demo-box">
+                <div class="demo-topbar">
+                    <span>cursor.demo.js</span>
+                    <span class="demo-live-badge"><span class="demo-live-dot"></span>Live — move mouse here</span>
+                </div>
+                <div class="demo-stage" id="demo-cursor-stage">
+                    <div class="cursor-follower" id="cursorFollower"></div>
+                    <div class="cursor-dot" id="cursorDot"></div>
+                    <span style="font-size:12px;color:var(--muted);pointer-events:none">Move your cursor over this
+                        area</span>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <div class="code-header">
+                    <div class="code-dots">
+                        <div class="code-dot"></div>
+                        <div class="code-dot"></div>
+                        <div class="code-dot"></div>
+                    </div>
+                    <span class="code-lang">javascript</span>
+                    <button class="copy-btn"
+                        data-copy='const motion = Magnetix.cursor(".cursor", { speed: 0.09 });'>Copy</button>
+                </div>
+                <pre><span class="kw">const</span> motion <span class="op">=</span> Magnetix<span class="op">.</span><span class="fn">cursor</span>(<span class="str">".cursor"</span><span class="op">,</span> <span class="op">{</span>
+                        <span class="prop">speed</span><span class="op">:</span> <span class="num">0.09</span>    <span class="cmt">// lower = more lag (0.01 – 1.0)</span>
+                        <span class="op">}</span>)<span class="op">;</span></pre>
+            </div>
+
+            <table class="api-table mt-md">
+                <tr>
+                    <th>Option</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>speed</code></td>
+                    <td class="type">number</td>
+                    <td>Lerp factor per frame. Lower = more trailing. Range: 0.01 – 1.0</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="drag">
+            <div class="section-tag">Feature</div>
+            <h2 class="section-title">Drag</h2>
+            <p class="section-desc">Make any element freely draggable with inertia. Elements snap naturally with
+                momentum on
+                release.</p>
+
+            <div class="demo-box">
+                <div class="demo-topbar">
+                    <span>drag.demo.js</span>
+                    <span class="demo-live-badge"><span class="demo-live-dot"></span>Live — drag the box</span>
+                </div>
+                <div class="demo-stage" id="demo-drag-stage">
+                    <div class="drag-box" id="dragBox">drag me</div>
+                    <div class="drag-hint">Try dragging the element</div>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <div class="code-header">
+                    <div class="code-dots">
+                        <div class="code-dot"></div>
+                        <div class="code-dot"></div>
+                        <div class="code-dot"></div>
+                    </div>
+                    <span class="code-lang">javascript</span>
+                    <button class="copy-btn" data-copy='const motion = Magnetix.drag(".drag");'>Copy</button>
+                </div>
+                <pre><span class="kw">const</span> motion <span class="op">=</span> Magnetix<span class="op">.</span><span class="fn">drag</span>(<span class="str">".drag"</span>)<span class="op">;</span></pre>
+            </div>
+        </section>
+
+        <section id="parallax">
+            <div class="section-tag">Feature</div>
+            <h2 class="section-title">Parallax</h2>
+            <p class="section-desc">Bind element movement to scroll position at different speeds, creating a depth
+                illusion
+                with multiple layers.</p>
+
+            <div class="demo-box">
+                <div class="demo-topbar">
+                    <span>parallax.demo.js</span>
+                    <span class="demo-live-badge"><span class="demo-live-dot"></span>Live — scroll-driven layers</span>
+                </div>
+                <div class="demo-stage" id="demo-parallax-stage">
+                    <div class="parallax-layer">slow</div>
+                    <div class="parallax-layer">mid</div>
+                    <div class="parallax-layer">fast</div>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <div class="code-header">
+                    <div class="code-dots">
+                        <div class="code-dot"></div>
+                        <div class="code-dot"></div>
+                        <div class="code-dot"></div>
+                    </div>
+                    <span class="code-lang">javascript</span>
+                    <button class="copy-btn">Copy</button>
+                </div>
+                <pre><span class="kw">import</span> <span class="op">{</span> <span class="prop">parallax</span> <span class="op">}</span> <span class="kw">from</span> <span class="str">"./features/parallax/parallex.js"</span><span class="op">;</span>
+
+                <span class="fn">parallax</span>(<span class="str">".layer-1"</span><span class="op">,</span> <span class="op">{</span> <span class="prop">speed</span><span class="op">:</span> <span class="num">0.2</span> <span class="op">}</span>)<span class="op">;</span>   <span class="cmt">// slowest</span>
+                <span class="fn">parallax</span>(<span class="str">".layer-2"</span><span class="op">,</span> <span class="op">{</span> <span class="prop">speed</span><span class="op">:</span> <span class="num">0.5</span> <span class="op">}</span>)<span class="op">;</span>   <span class="cmt">// mid</span>
+                <span class="fn">parallax</span>(<span class="str">".layer-3"</span><span class="op">,</span> <span class="op">{</span> <span class="prop">speed</span><span class="op">:</span> <span class="num">0.9</span> <span class="op">}</span>)<span class="op">;</span>   <span class="cmt">// fastest</span></pre>
+            </div>
+        </section>
+
+        <section id="reveal">
+            <div class="section-tag">Feature</div>
+            <h2 class="section-title">Reveal</h2>
+            <p class="section-desc">Animate elements into view as they enter the viewport on scroll. Uses
+                IntersectionObserver under the hood.</p>
+
+            <div class="code-block">
+                <div class="code-header">
+                    <div class="code-dots">
+                        <div class="code-dot"></div>
+                        <div class="code-dot"></div>
+                        <div class="code-dot"></div>
+                    </div>
+                    <span class="code-lang">javascript</span>
+                    <button class="copy-btn">Copy</button>
+                </div>
+                <pre><span class="kw">import</span> reveal <span class="kw">from</span> <span class="str">"./features/reveal/reveal.js"</span><span class="op">;</span>
+
+                    <span class="fn">reveal</span>(<span class="str">".section"</span><span class="op">,</span> <span class="op">{</span>
+                    <span class="prop">threshold</span><span class="op">:</span> <span class="num">0.2</span><span class="op">,</span>      <span class="cmt">// % of element visible before trigger</span>
+                    <span class="prop">duration</span><span class="op">:</span>  <span class="num">800</span><span class="op">,</span>
+                    <span class="prop">from</span><span class="op">: {</span> <span class="prop">opacity</span><span class="op">:</span> <span class="num">0</span><span class="op">,</span> <span class="prop">y</span><span class="op">:</span> <span class="num">40</span> <span class="op">},</span>
+                    <span class="prop">easing</span><span class="op">:</span> Easings<span class="op">.</span><span class="prop">easeOutCubic</span><span class="op">,</span>
+                    <span class="op">}</span>)<span class="op">;</span></pre>
+            </div>
+
+            <table class="api-table mt-md">
+                <tr>
+                    <th>Option</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>threshold</code></td>
+                    <td class="type">number</td>
+                    <td>0 – 1, how much of element must be visible</td>
+                </tr>
+                <tr>
+                    <td><code>duration</code></td>
+                    <td class="type">number</td>
+                    <td>Animation duration in ms</td>
+                </tr>
+                <tr>
+                    <td><code>from</code></td>
+                    <td class="type">object</td>
+                    <td>Starting CSS state: opacity, x, y, scale, rotate</td>
+                </tr>
+                <tr>
+                    <td><code>easing</code></td>
+                    <td class="type">function</td>
+                    <td>Any Easings function</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="timeline">
+            <div class="section-tag">Advanced</div>
+            <h2 class="section-title">Timeline</h2>
+            <p class="section-desc">The Timeline is your conductor. It collects all motions and gives you a single
+                interface
+                to play, pause, and scrub through everything simultaneously.</p>
+
+            <div class="timeline-controls">
+                <div class="tl-tracks">
+                    <div class="tl-track">
+                        <div class="tl-track-label">svgMotion</div>
+                        <div class="tl-track-bar-wrap">
+                            <div class="tl-track-fill" id="track1" style="background:var(--accent)"></div>
+                        </div>
+                    </div>
+                    <div class="tl-track">
+                        <div class="tl-track-label">magnetic</div>
+                        <div class="tl-track-bar-wrap">
+                            <div class="tl-track-fill" id="track2" style="background:var(--accent2)"></div>
+                        </div>
+                    </div>
+                    <div class="tl-track">
+                        <div class="tl-track-label">splitText</div>
+                        <div class="tl-track-bar-wrap">
+                            <div class="tl-track-fill" id="track3" style="background:var(--accent3)"></div>
+                        </div>
+                    </div>
+                    <div class="tl-track">
+                        <div class="tl-track-label">morph</div>
+                        <div class="tl-track-bar-wrap">
+                            <div class="tl-track-fill" id="track4" style="background:#f59e0b"></div>
+                        </div>
+                    </div>
+                    <div class="tl-track">
+                        <div class="tl-track-label">cursor</div>
+                        <div class="tl-track-bar-wrap">
+                            <div class="tl-track-fill" id="track5" style="background:#ec4899"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tl-progress-wrap">
+                    <div class="tl-progress-label">
+                        <span>Progress</span>
+                        <span id="tlPercent">0%</span>
+                    </div>
+                    <div class="tl-progress-bar" id="tlBar">
+                        <div class="tl-progress-fill" id="tlFill"></div>
+                    </div>
+                </div>
+
+                <div class="tl-btns">
+                    <button class="tl-btn play" id="tlPlay">▶ timeline.play()</button>
+                    <button class="tl-btn pause" id="tlPause">⏸ timeline.pause()</button>
+                    <button class="tl-btn" id="tlSeek25">↷ seek(0.25)</button>
+                    <button class="tl-btn" id="tlSeek50">↷ seek(0.5)</button>
+                    <button class="tl-btn" id="tlSeek75">↷ seek(0.75)</button>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <div class="code-header">
+                    <div class="code-dots">
+                        <div class="code-dot"></div>
+                        <div class="code-dot"></div>
+                        <div class="code-dot"></div>
+                    </div>
+                    <span class="code-lang">javascript — timeline composition</span>
+                    <button class="copy-btn">Copy</button>
+                </div>
+                <pre><span class="kw">const</span> timeline <span class="op">=</span> <span class="kw">new</span> Magnetix<span class="op">.</span><span class="fn">Timeline</span>()<span class="op">;</span>
+
+                timeline<span class="op">.</span><span class="fn">add</span>(
+                motion<span class="op">,</span>   <span class="cmt">// svgMotion</span>
+                motion1<span class="op">,</span>  <span class="cmt">// svgMotion #2</span>
+                motion2<span class="op">,</span>  <span class="cmt">// svgMotion #3</span>
+                motion3<span class="op">,</span>  <span class="cmt">// magnetic</span>
+                motion4<span class="op">,</span>  <span class="cmt">// splitText</span>
+                motion5<span class="op">,</span>  <span class="cmt">// morph</span>
+                motion6<span class="op">,</span>  <span class="cmt">// cursor</span>
+                motion7<span class="op">,</span>  <span class="cmt">// drag</span>
+                )<span class="op">;</span>
+
+                timeline<span class="op">.</span><span class="fn">play</span>()<span class="op">;</span>
+
+                <span class="cmt">// Seek to any point (0.0 → 1.0)</span>
+                <span class="fn">$$</span>(<span class="str">'seekBtn'</span>)<span class="op">.</span><span class="fn">addEventListener</span>(<span class="str">'click'</span><span class="op">,</span> () <span class="op">=></span> timeline<span class="op">.</span><span class="fn">seek</span>(<span class="num">0.5</span>))<span class="op">;</span>
+                <span class="fn">$$</span>(<span class="str">'pauseBtn'</span>)<span class="op">.</span><span class="fn">addEventListener</span>(<span class="str">'click'</span><span class="op">,</span> () <span class="op">=></span> timeline<span class="op">.</span><span class="fn">pause</span>())<span class="op">;</span>
+                <span class="fn">$$</span>(<span class="str">'playBtn'</span>)<span class="op">.</span><span class="fn">addEventListener</span>(<span class="str">'click'</span><span class="op">,</span> () <span class="op">=></span> timeline<span class="op">.</span><span class="fn">play</span>())<span class="op">;</span></pre>
+            </div>
+        </section>
+
+        <section id="easings">
+            <div class="section-tag">Advanced</div>
+            <h2 class="section-title">Easings</h2>
+            <p class="section-desc">A full library of easing functions for fine-tuning animation feel. Pass any easing
+                as a
+                function reference.</p>
+
+            <div class="code-block">
+                <div class="code-header">
+                    <div class="code-dots">
+                        <div class="code-dot"></div>
+                        <div class="code-dot"></div>
+                        <div class="code-dot"></div>
+                    </div>
+                    <span class="code-lang">javascript</span>
+                    <button class="copy-btn">Copy</button>
+                </div>
+                <pre><span class="kw">const</span> <span class="op">{</span> <span class="prop">Easings</span> <span class="op">}</span> <span class="op">=</span> Magnetix<span class="op">;</span>
+                    <span class="cmt">// Linear</span>
+                    Easings<span class="op">.</span><span class="prop">linear</span>
+                    <span class="cmt">// Polynomial</span>
+                    Easings<span class="op">.</span><span class="prop">easeInQuad</span>      Easings<span class="op">.</span><span class="prop">easeOutQuad</span>      Easings<span class="op">.</span><span class="prop">easeInOutQuad</span>
+                    Easings<span class="op">.</span><span class="prop">easeInCubic</span>     Easings<span class="op">.</span><span class="prop">easeOutCubic</span>     Easings<span class="op">.</span><span class="prop">easeInOutCubic</span>
+                    Easings<span class="op">.</span><span class="prop">easeInQuart</span>     Easings<span class="op">.</span><span class="prop">easeOutQuart</span>     Easings<span class="op">.</span><span class="prop">easeInOutQuart</span>
+                    <span class="cmt">// Special</span>
+                    Easings<span class="op">.</span><span class="prop">easeInElastic</span>   Easings<span class="op">.</span><span class="prop">easeOutElastic</span>   Easings<span class="op">.</span><span class="prop">easeInOutElastic</span>
+                    Easings<span class="op">.</span><span class="prop">easeInBack</span>      Easings<span class="op">.</span><span class="prop">easeOutBack</span>      Easings<span class="op">.</span><span class="prop">easeInOutBack</span>
+                    Easings<span class="op">.</span><span class="prop">easeInBounce</span>    Easings<span class="op">.</span><span class="prop">easeOutBounce</span>    Easings<span class="op">.</span><span class="prop">easeInOutBounce</span></pre>
+            </div>
+        </section>
+        <section id="api">
+            <div class="section-tag">Reference</div>
+            <h2 class="section-title">API Reference</h2>
+            <p class="section-desc">Complete method signatures for every Magnetix feature.</p>
+
+            <div class="api-card">
+                <div class="api-card-head">
+                    <span class="api-method">MOTION</span>
+                    <span class="api-sig"><span class="fn-name">svgMotion</span><span class="params">(selector,
+                            config)</span></span>
+                </div>
+                <div class="api-card-body">
+                    <table class="api-table">
+                        <tr>
+                            <th>Param</th>
+                            <th>Type</th>
+                            <th>Required</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td><code>selector</code></td>
+                            <td class="type">string</td>
+                            <td>✓</td>
+                            <td>CSS selector</td>
+                        </tr>
+                        <tr>
+                            <td><code>config.duration</code></td>
+                            <td class="type">number</td>
+                            <td>✓</td>
+                            <td>ms</td>
+                        </tr>
+                        <tr>
+                            <td><code>config.path</code></td>
+                            <td class="type">Segment[]</td>
+                            <td>✓</td>
+                            <td>Array of bezier segments</td>
+                        </tr>
+                        <tr>
+                            <td><code>config.transform</code></td>
+                            <td class="type">object</td>
+                            <td>—</td>
+                            <td><code>{ rotate, scale }</code></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="api-card">
+                <div class="api-card-head">
+                    <span class="api-method">MOTION</span>
+                    <span class="api-sig"><span class="fn-name">splitText</span><span class="params">(selector, mode,
+                            config)</span></span>
+                </div>
+                <div class="api-card-body">
+                    <table class="api-table">
+                        <tr>
+                            <th>Param</th>
+                            <th>Type</th>
+                            <th>Required</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td><code>selector</code></td>
+                            <td class="type">string</td>
+                            <td>✓</td>
+                            <td>CSS selector</td>
+                        </tr>
+                        <tr>
+                            <td><code>mode</code></td>
+                            <td class="type">string</td>
+                            <td>✓</td>
+                            <td><code>"chars"</code> | <code>"words"</code> | <code>"lines"</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>config.duration</code></td>
+                            <td class="type">number</td>
+                            <td>✓</td>
+                            <td>ms per unit</td>
+                        </tr>
+                        <tr>
+                            <td><code>config.delay</code></td>
+                            <td class="type">number</td>
+                            <td>—</td>
+                            <td>stagger ms between units</td>
+                        </tr>
+                        <tr>
+                            <td><code>config.easing</code></td>
+                            <td class="type">function</td>
+                            <td>—</td>
+                            <td>Easings.*</td>
+                        </tr>
+                        <tr>
+                            <td><code>config.transform</code></td>
+                            <td class="type">object</td>
+                            <td>—</td>
+                            <td>scale, rotate, y offset</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="api-card">
+                <div class="api-card-head">
+                    <span class="api-method">MOTION</span>
+                    <span class="api-sig"><span class="fn-name">magnetic</span><span class="params">(selector,
+                            options?)</span></span>
+                </div>
+                <div class="api-card-body">
+                    <table class="api-table">
+                        <tr>
+                            <th>Param</th>
+                            <th>Type</th>
+                            <th>Required</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td><code>selector</code></td>
+                            <td class="type">string</td>
+                            <td>✓</td>
+                            <td>CSS selector</td>
+                        </tr>
+                        <tr>
+                            <td><code>options.strength</code></td>
+                            <td class="type">number</td>
+                            <td>—</td>
+                            <td>Pull force 0.0–1.0</td>
+                        </tr>
+                        <tr>
+                            <td><code>options.radius</code></td>
+                            <td class="type">number</td>
+                            <td>—</td>
+                            <td>Trigger radius in px</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="api-card">
+                <div class="api-card-head">
+                    <span class="api-method">MOTION</span>
+                    <span class="api-sig"><span class="fn-name">cursor</span><span class="params">(selector,
+                            options?)</span></span>
+                </div>
+                <div class="api-card-body">
+                    <table class="api-table">
+                        <tr>
+                            <th>Param</th>
+                            <th>Type</th>
+                            <th>Required</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td><code>selector</code></td>
+                            <td class="type">string</td>
+                            <td>✓</td>
+                            <td>CSS selector for cursor element</td>
+                        </tr>
+                        <tr>
+                            <td><code>options.speed</code></td>
+                            <td class="type">number</td>
+                            <td>—</td>
+                            <td>Lerp factor 0.01–1.0</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="api-card">
+                <div class="api-card-head">
+                    <span class="api-method">CLASS</span>
+                    <span class="api-sig"><span class="fn-name">new Timeline</span><span class="params">()</span></span>
+                </div>
+                <div class="api-card-body">
+                    <table class="api-table">
+                        <tr>
+                            <th>Method</th>
+                            <th>Signature</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td><code>.add()</code></td>
+                            <td class="type">add(...motions)</td>
+                            <td>Register one or more motion objects</td>
+                        </tr>
+                        <tr>
+                            <td><code>.play()</code></td>
+                            <td class="type">play() → void</td>
+                            <td>Start or resume all motions</td>
+                        </tr>
+                        <tr>
+                            <td><code>.pause()</code></td>
+                            <td class="type">pause() → void</td>
+                            <td>Pause all motions</td>
+                        </tr>
+                        <tr>
+                            <td><code>.seek()</code></td>
+                            <td class="type">seek(t: 0–1) → void</td>
+                            <td>Jump to position in normalized time</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="practices">
+            <div class="section-tag">Guide</div>
+            <h2 class="section-title">Best Practices</h2>
+            <p class="section-desc">Hard-won advice for building animations that feel professional.</p>
+
+            <div class="tip-list">
+                <div class="tip">
+                    <div class="tip-icon">⏱</div>
+                    <div class="tip-body">
+                        <div class="tip-title">Always use Timeline for multiple animations</div>
+                        <div class="tip-text">Even if two motions could run independently, grouping them in a Timeline
+                            gives
+                            you unified pause/seek control — essential for interactive UIs and page transitions.</div>
+                    </div>
+                </div>
+                <div class="tip">
+                    <div class="tip-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="9" stroke="white" stroke-width="2" />
+                            <circle cx="12" cy="12" r="4" stroke="white" stroke-width="2" />
+                            <circle cx="12" cy="12" r="1.5" fill="white" />
+                        </svg>
+                    </div>
+                    <div class="tip-body">
+                        <div class="tip-title">Keep durations consistent across a scene</div>
+                        <div class="tip-text">When multiple animations have wildly different durations they feel
+                            disjointed.
+                            Anchor everything to a base duration and use multiples of it (×0.5, ×2) for hierarchy.</div>
+                    </div>
+                </div>
+                <div class="tip">
+                    <div class="tip-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M4 14C10 4 18 4 20 8C16 10 12 14 8 20C6 18 5 16 4 14Z" stroke="white"
+                                stroke-width="2" fill="none" />
+                            <line x1="6" y1="18" x2="18" y2="6" stroke="white" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="tip-body">
+                        <div class="tip-title">One easing family per scene</div>
+                        <div class="tip-text">Pick a family (cubic, elastic, etc.) and stick to it. Mixing
+                            easeInOutCubic
+                            with easeOutBounce on adjacent elements creates visual noise, not delight.</div>
+                    </div>
+                </div>
+                <div class="tip">
+                    <div class="tip-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <rect x="4" y="4" width="7" height="7" stroke="white" stroke-width="2" />
+                            <rect x="13" y="4" width="7" height="7" stroke="white" stroke-width="2" />
+                            <rect x="4" y="13" width="7" height="7" stroke="white" stroke-width="2" />
+                            <path d="M13 16C13 14 15 14 15 16C15 18 17 18 17 16" stroke="white" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="tip-body">
+                        <div class="tip-title">Avoid stacking too many transforms</div>
+                        <div class="tip-text">Combining rotate + scale + translate on the same element along an SVG path
+                            can
+                            conflict visually. Test each transform axis in isolation before combining.</div>
+                    </div>
+                </div>
+                <div class="tip">
+                    <div class="tip-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M4 20L12 4L20 20Z" stroke="white" stroke-width="2" />
+                            <line x1="8" y1="14" x2="16" y2="14" stroke="white" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="tip-body">
+                        <div class="tip-title">Use seek() to build interactive scrubbers</div>
+                        <div class="tip-text">The <span class="inline-code">timeline.seek(t)</span> method accepts a
+                            normalized 0–1 value, making it trivial to bind to a scroll position, slider, or progress
+                            bar
+                            for interactive storytelling.</div>
+                    </div>
+                </div>
+                <div class="tip">
+                    <div class="tip-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <rect x="3" y="7" width="16" height="10" rx="2" stroke="white" stroke-width="2" />
+                            <rect x="19" y="10" width="2" height="4" fill="white" />
+                            <rect x="5" y="9" width="10" height="6" fill="white" />
+                        </svg>
+                    </div>
+                    <div class="tip-body">
+                        <div class="tip-title">Pause animations when off-screen</div>
+                        <div class="tip-text">Use an IntersectionObserver to call <span
+                                class="inline-code">timeline.pause()</span> when the animated section leaves the
+                            viewport.
+                            This saves battery and CPU on long pages.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+            <div class="footer-inner">
+                <span>Magnetix Motion Engine — v1.0.0</span>
+            </div>
+        </footer>
+
+    </main>
     <script src="demo.js" type="module"></script>
 </body>
 

@@ -5,7 +5,7 @@ import { getBezierOnPath, applyTransform } from "./helper.js";
 function svgMotion(selector, config = {}) {
     const element = document.querySelector(selector);
     const {
-        from, to, easing, duration, delay,
+        from, to, easing, duration, delay, repeat, yoyo,
         path: userPath,
         transform: userTransform,
     } = { ...DEFAULT_CONFIG, ...config };
@@ -14,7 +14,7 @@ function svgMotion(selector, config = {}) {
     const transform = { ...DEFAULT_TRANSFORM, ...userTransform };
 
     const anim = createAnimation({
-        from, to, duration, delay, easing,
+        from, to, duration, delay, easing, yoyo, repeat,
         onUpdate(_, progress) {
             const { x, y } = getBezierOnPath(progress, path);
             transform.x = x;

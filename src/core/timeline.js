@@ -42,6 +42,9 @@ class Timeline {
         this.dispatch(this.currentTime);
         return this;
     }
+    progress() {
+        return Math.min(Math.max(this.currentTime / this.totalDuration, 0), 1);
+    }
     reset() {
         this.currentTime = 0;
         this.isPaused = true;

@@ -27,5 +27,6 @@ const DEFAULT_MORPH_CONFIG = {
     start: 0,
     end: 100,
     delay: 0,
+    pointsCount: 20,
 }
 export default DEFAULT_MORPH_CONFIG;
