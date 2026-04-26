@@ -218,6 +218,124 @@ const logoMotion = Magnetix.svgMotion(".logo-svg", {
         }
     }
 });
-newTimeline.add(logoMotion);
+const slideBtn = Magnetix.svgMotion(".hero-ctas .btn-primary", {
+    duration: 900,
+    path: [{
+        from: [8000, 0],
+        p1: [2000, 0],        // go down
+        p2: [1000, 0],
+        to: [0, 0]        // reach far right top
+    }],
+    transform: {
+        opacity: { value: 1, easing: Easings.easeInOutCubic },
+    }
+})
+const slideRefBtn = Magnetix.svgMotion(".hero-ctas .btn-ghost", {
+    duration: 1000,
+    path: [{
+        from: [8000, 0],
+        p1: [4000, 0],
+        p2: [2000, 0],
+        to: [1000, 0]
+    },
+    {
+        from: [1000, 0],
+        p1: [900, 0],
+        p2: [800, 0],
+        to: [700, 0]
+    },
+
+    {
+        from: [700, 0],
+        p1: [500, 0],
+        p2: [400, 0],
+        to: [0, 0]
+    }
+    ],
+
+    transform: {
+        opacity: { value: 1, easing: Easings.easeInOutCubic },
+        rotate: { value: 360, easing: Easings.easeInOutCubic },
+    }
+})
+
+const slideGitBtn = Magnetix.svgMotion(".hero-ctas .btn-ghost.github", {
+    duration: 1200,
+
+    path: [
+        {
+            from: [8000, -4000],
+            p1: [800, 0],
+            p2: [750, 0],
+            to: [700, 0]
+        },
+
+        {
+            from: [700, 0],
+            p1: [650, 0],
+            p2: [600, 0],
+            to: [550, 0]
+        },
+        {
+            from: [500, 0],
+            p1: [490, 0],
+            p2: [480, 0],
+            to: [470, 0]
+        },
+
+        {
+            from: [460, 0],
+            p1: [450, 0],
+            p2: [440, 0],
+            to: [430, 0]
+        },
+
+        {
+            from: [420, 0],
+            p1: [410, 0],
+            p2: [400, 0],
+            to: [400, 0]
+        },
+
+        {
+            from: [400, 0],
+            p1: [360, 0],
+            p2: [280, 0],
+            to: [200, 0]
+        },
+
+        {
+            from: [200, 0],
+            p1: [180, 0],
+            p2: [120, 0],
+            to: [100, 0]
+        },
+
+        {
+            from: [100, 0],
+            p1: [90, 0],
+            p2: [60, 0],
+            to: [40, 0]
+        },
+
+        {
+            from: [40, 0],
+            p1: [30, 0],
+            p2: [15, 0],
+            to: [0, 0]
+        }
+    ],
+
+    transform: {
+        opacity: {
+            value: 1,
+            easing: Easings.easeOutCubic
+        },
+        rotate: {
+            value: 360,
+            easing: Easings.easeInOutCubic
+        }
+    }
+});
+newTimeline.add(logoMotion, slideBtn, slideRefBtn, slideGitBtn);
 newTimeline.play();
-//newTimeline.seek(0.5);
