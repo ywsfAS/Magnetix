@@ -7,6 +7,7 @@ class Timeline {
         this.currentTime = 0;
         this.isPaused = true;
         this.lastTime = null;
+        this.finitOffset = 0;
         engine.add(this);
 
     }
@@ -21,12 +22,15 @@ class Timeline {
     }
     addOneAnim(config) {
         const anim = {
-            start: this.totalDuration,
+            start: this.finitOffset,
             anim: config,
         };
         this.animations.push(anim);
         if (isFinite(config.totalDuration)) {
-            this.totalDuration += config.totalDuration;
+            this.finitOffset += config.totalDuration;
+            this.totalDuration = this.finitOffset;
+        } else {
+            this.totalDuration = Infinity;
         }
     }
     play() {
@@ -38,12 +42,12 @@ class Timeline {
         return this;
     }
     seek(progress) {
-        this.currentTime = Math.max(Math.min(progress, 1), 0) * this.totalDuration;
+        this.currentTime = Math.max(Math.min(progress, 1), 0) * this.finitOffset;
         this.dispatch(this.currentTime);
         return this;
     }
     progress() {
-        return Math.min(Math.max(this.currentTime / this.totalDuration, 0), 1);
+        return Math.min(Math.max(this.currentTime / this.finitOffset, 0), 1);
     }
     reset() {
         this.currentTime = 0;

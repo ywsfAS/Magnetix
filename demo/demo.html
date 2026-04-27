@@ -26,36 +26,37 @@
             </div>
             <div class="logo-version">v1.0.0 — Motion Engine</div>
         </div>
+        <div class="nav-scroll">
+            <div class="nav-group">
+                <div class="nav-label">Getting Started</div>
+                <a class="nav-item active" href="#hero"><span class="nav-dot"></span>Introduction</a>
+                <a class="nav-item" href="#install"><span class="nav-dot"></span>Installation</a>
+                <a class="nav-item" href="#core"><span class="nav-dot"></span>Core Concepts</a>
+            </div>
 
-        <div class="nav-group">
-            <div class="nav-label">Getting Started</div>
-            <a class="nav-item active" href="#hero"><span class="nav-dot"></span>Introduction</a>
-            <a class="nav-item" href="#install"><span class="nav-dot"></span>Installation</a>
-            <a class="nav-item" href="#core"><span class="nav-dot"></span>Core Concepts</a>
-        </div>
+            <div class="nav-group">
+                <div class="nav-label">Features</div>
+                <a class="nav-item" href="#magnetic"><span class="nav-dot"></span>Magnetic</a>
+                <a class="nav-item" href="#svgmotion"><span class="nav-dot"></span>SVG Motion</a>
+                <a class="nav-item" href="#splittext"><span class="nav-dot"></span>Split Text</a>
+                <a class="nav-item" href="#morph"><span class="nav-dot"></span>Morph</a>
+                <a class="nav-item" href="#cursor"><span class="nav-dot"></span>Cursor Follow</a>
+                <a class="nav-item" href="#drag"><span class="nav-dot"></span>Drag</a>
+                <a class="nav-item" href="#parallax"><span class="nav-dot"></span>Parallax</a>
+                <a class="nav-item" href="#reveal"><span class="nav-dot"></span>Reveal</a>
+            </div>
 
-        <div class="nav-group">
-            <div class="nav-label">Features</div>
-            <a class="nav-item" href="#magnetic"><span class="nav-dot"></span>Magnetic</a>
-            <a class="nav-item" href="#svgmotion"><span class="nav-dot"></span>SVG Motion</a>
-            <a class="nav-item" href="#splittext"><span class="nav-dot"></span>Split Text</a>
-            <a class="nav-item" href="#morph"><span class="nav-dot"></span>Morph</a>
-            <a class="nav-item" href="#cursor"><span class="nav-dot"></span>Cursor Follow</a>
-            <a class="nav-item" href="#drag"><span class="nav-dot"></span>Drag</a>
-            <a class="nav-item" href="#parallax"><span class="nav-dot"></span>Parallax</a>
-            <a class="nav-item" href="#reveal"><span class="nav-dot"></span>Reveal</a>
-        </div>
+            <div class="nav-group">
+                <div class="nav-label">Advanced</div>
+                <a class="nav-item" href="#timeline"><span class="nav-dot"></span>Timeline</a>
+                <a class="nav-item" href="#easings"><span class="nav-dot"></span>Easings</a>
+            </div>
 
-        <div class="nav-group">
-            <div class="nav-label">Advanced</div>
-            <a class="nav-item" href="#timeline"><span class="nav-dot"></span>Timeline</a>
-            <a class="nav-item" href="#easings"><span class="nav-dot"></span>Easings</a>
-        </div>
-
-        <div class="nav-group">
-            <div class="nav-label">Reference</div>
-            <a class="nav-item" href="#api"><span class="nav-dot"></span>API Reference</a>
-            <a class="nav-item" href="#practices"><span class="nav-dot"></span>Best Practices</a>
+            <div class="nav-group">
+                <div class="nav-label">Reference</div>
+                <a class="nav-item" href="#api"><span class="nav-dot"></span>API Reference</a>
+                <a class="nav-item" href="#practices"><span class="nav-dot"></span>Best Practices</a>
+            </div>
         </div>
     </nav>
 
@@ -132,8 +133,8 @@
             <p class="section-desc">Three ideas power everything in Magnetix. Understand these and the rest clicks
                 instantly.</p>
 
-            <div class="feature-grid" style="grid-template-columns:1fr 1fr 1fr; margin-bottom:32px;">
-                <div class="feature-card">
+            <div class="feature-grid">
+                <div class="feature-card mo">
                     <div class="feature-icon">
                         <svg width="120" height="24" viewBox="0 0 120 24" fill="none">
                             <rect x="6" y="8" width="8" height="8" transform="rotate(45 10 12)" fill="white" />
@@ -148,7 +149,7 @@
                         it's a
                         description of what should happen.</div>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card tl">
                     <div class="feature-icon">
                         <svg width="120" height="24" viewBox="0 0 120 24" fill="none">
                             <polygon points="5,4 5,20 18,12" fill="white" />
@@ -160,7 +161,7 @@
                         play,
                         pause, and seek across all animations simultaneously.</div>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card cp">
                     <div class="feature-icon">
                         <svg width="120" height="24" viewBox="0 0 120 24" fill="none">
                             <rect x="0" y="10" width="120" height="4" fill="white" />
@@ -578,9 +579,9 @@ timeline<span class="op">.</span><span class="fn">seek</span>(<span class="num">
                     <span class="demo-live-badge"><span class="demo-live-dot"></span>Live — scroll-driven layers</span>
                 </div>
                 <div class="demo-stage" id="demo-parallax-stage">
-                    <div class="parallax-layer">slow</div>
-                    <div class="parallax-layer">mid</div>
-                    <div class="parallax-layer">fast</div>
+                    <div class="parallax-layer slow">slow</div>
+                    <div class="parallax-layer mid">mid</div>
+                    <div class="parallax-layer fast">fast</div>
                 </div>
             </div>
 
@@ -595,10 +596,9 @@ timeline<span class="op">.</span><span class="fn">seek</span>(<span class="num">
                     <button class="copy-btn">Copy</button>
                 </div>
                 <pre><span class="kw">import</span> <span class="op">{</span> <span class="prop">parallax</span> <span class="op">}</span> <span class="kw">from</span> <span class="str">"./features/parallax/parallex.js"</span><span class="op">;</span>
-
-                <span class="fn">parallax</span>(<span class="str">".layer-1"</span><span class="op">,</span> <span class="op">{</span> <span class="prop">speed</span><span class="op">:</span> <span class="num">0.2</span> <span class="op">}</span>)<span class="op">;</span>   <span class="cmt">// slowest</span>
-                <span class="fn">parallax</span>(<span class="str">".layer-2"</span><span class="op">,</span> <span class="op">{</span> <span class="prop">speed</span><span class="op">:</span> <span class="num">0.5</span> <span class="op">}</span>)<span class="op">;</span>   <span class="cmt">// mid</span>
-                <span class="fn">parallax</span>(<span class="str">".layer-3"</span><span class="op">,</span> <span class="op">{</span> <span class="prop">speed</span><span class="op">:</span> <span class="num">0.9</span> <span class="op">}</span>)<span class="op">;</span>   <span class="cmt">// fastest</span></pre>
+<span class="fn">parallax</span>(<span class="str">".layer-1"</span><span class="op">,</span> <span class="op">{</span> <span class="prop">speed</span><span class="op">:</span> <span class="num">0.2</span> <span class="op">}</span>)<span class="op">;</span>   <span class="cmt">// slowest</span>
+<span class="fn">parallax</span>(<span class="str">".layer-2"</span><span class="op">,</span> <span class="op">{</span> <span class="prop">speed</span><span class="op">:</span> <span class="num">0.5</span> <span class="op">}</span>)<span class="op">;</span>   <span class="cmt">// mid</span>
+<span class="fn">parallax</span>(<span class="str">".layer-3"</span><span class="op">,</span> <span class="op">{</span> <span class="prop">speed</span><span class="op">:</span> <span class="num">0.9</span> <span class="op">}</span>)<span class="op">;</span>   <span class="cmt">// fastest</span></pre>
             </div>
         </section>
 

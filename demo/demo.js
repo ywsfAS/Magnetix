@@ -339,3 +339,23 @@ const slideGitBtn = Magnetix.svgMotion(".hero-ctas .btn-ghost.github", {
 });
 newTimeline.add(logoMotion, slideBtn, slideRefBtn, slideGitBtn);
 newTimeline.play();
+// test reveal api and parallax
+const testTimeline = new Magnetix.Timeline();
+const revealCard = Magnetix.reveal(".feature-card", {
+    duration: 1000,
+    transform: {
+        y: { value: -20, easing: Easings.easeInOutQuad },
+        opacity: { value: 1, easing: Easings.easeInOutSine }
+    },
+    delay: 1000,
+});
+
+// code boxes parallex
+const slowParallax = Magnetix.parallax(".parallax-layer.slow", { speed: 1.01 });
+const midParallax = Magnetix.parallax(".parallax-layer.mid", { speed: 2.02 });
+const fastParallax = Magnetix.parallax(".parallax-layer.fast", { speed: 3.04 });
+
+
+
+testTimeline.add(revealCard, slowParallax, midParallax, fastParallax);
+testTimeline.play();

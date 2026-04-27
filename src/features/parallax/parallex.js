@@ -1,31 +1,44 @@
-let items = [];
-let scrollY = 0;
+import { applyTransform, buildTransform } from "../common.js";
+import { DEFAULT_TRANSFORM } from "./constants.js";
 
-window.addEventListener("scroll", () => {
-    scrollY = window.scrollY;
-});
+let scrollY = 0;
+window.addEventListener("scroll", () => { scrollY = window.scrollY; }, { passive: true });
 
 function parallax(selector, config = {}) {
-    const el = document.querySelector(selector);
-    if (!el) return;
+    const { speed = 0.02, transform: userTransform, easing } = config;
+    const elements = [...document.querySelectorAll(selector)];
+    if (!elements.length) return null;
 
-    const item = { el, speed: config.speed ?? 0.3 };
-    items.push(item);
+    const items = elements.map((el) => {
+        const transform = buildTransform(DEFAULT_TRANSFORM, userTransform);
+        console.log(transform)
+        return { el, transform };
+    });
 
     return {
-        totalDuration: Infinity,          // scroll-driven, runs forever
+        totalDuration: Infinity,
         update(_localTime) {
-            el.style.transform = `translateY(${scrollY * item.speed}px)`;
+            items.forEach(({ el, transform }) => {
+                const rect = el.getBoundingClientRect();
+                const elCenter = rect.top + rect.height / 2 + scrollY;
+
+                const viewCenter = scrollY + window.innerHeight / 2;
+                const offset = (viewCenter - elCenter) * speed;
+                transform.y.value = offset;
+                applyTransform(el, transform, 1);
+
+            });
         },
         kill() {
-            items = items.filter((i) => i.el !== el);
-            el.style.transform = `translateY(0px)`;
+            items.forEach(({ el, transform }) => {
+                transform.y = 0;
+                applyTransform(el, transform);
+            });
         },
     };
 }
 
 function clearParallax() {
-    items = [];
 }
 
 export { parallax, clearParallax };
