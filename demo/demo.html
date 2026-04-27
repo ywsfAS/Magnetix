@@ -323,6 +323,17 @@ timeline<span class="op">.</span><span class="fn">seek</span>(<span class="num">
                     <td class="type">object</td>
                     <td><code>{ value, easing }</code> — scale multiplier</td>
                 </tr>
+                <tr>
+                    <td><code>repeat</code></td>
+                    <td class="type">number</td>
+                    <td>Number of times the animation repeats (default: 0)</td>
+                </tr>
+
+                <tr>
+                    <td><code>yoyo</code></td>
+                    <td class="type">boolean</td>
+                    <td>Plays the animation forward and then in reverse on each repeat (default: false)</td>
+                </tr>
             </table>
         </section>
 
@@ -404,6 +415,18 @@ timeline<span class="op">.</span><span class="fn">seek</span>(<span class="num">
                     <td><code>transform</code></td>
                     <td class="type">object</td>
                     <td>Scale, rotate, translateY per character</td>
+                </tr>
+
+                <tr>
+                    <td><code>repeat</code></td>
+                    <td class="type">number</td>
+                    <td>Number of times the animation repeats (default: 0)</td>
+                </tr>
+
+                <tr>
+                    <td><code>yoyo</code></td>
+                    <td class="type">boolean</td>
+                    <td>Plays the animation forward and then in reverse on each repeat (default: false)</td>
                 </tr>
             </table>
         </section>
@@ -489,6 +512,18 @@ timeline<span class="op">.</span><span class="fn">seek</span>(<span class="num">
                     <td><code>pointsCount</code></td>
                     <td class="type">number</td>
                     <td>number of points used in the shape</td>
+                </tr>
+
+                <tr>
+                    <td><code>repeat</code></td>
+                    <td class="type">number</td>
+                    <td>Number of times the animation repeats (default: 0)</td>
+                </tr>
+
+                <tr>
+                    <td><code>yoyo</code></td>
+                    <td class="type">boolean</td>
+                    <td>Plays the animation forward and then in reverse on each repeat (default: false)</td>
                 </tr>
             </table>
         </section>
@@ -680,7 +715,7 @@ timeline<span class="op">.</span><span class="fn">seek</span>(<span class="num">
                         </div>
                     </div>
                     <div class="tl-track">
-                        <div class="tl-track-label">magnetic</div>
+                        <div class="tl-track-label">morph</div>
                         <div class="tl-track-bar-wrap">
                             <div class="tl-track-fill" id="track2" style="background:var(--accent2)"></div>
                         </div>
@@ -689,18 +724,6 @@ timeline<span class="op">.</span><span class="fn">seek</span>(<span class="num">
                         <div class="tl-track-label">splitText</div>
                         <div class="tl-track-bar-wrap">
                             <div class="tl-track-fill" id="track3" style="background:var(--accent3)"></div>
-                        </div>
-                    </div>
-                    <div class="tl-track">
-                        <div class="tl-track-label">morph</div>
-                        <div class="tl-track-bar-wrap">
-                            <div class="tl-track-fill" id="track4" style="background:#f59e0b"></div>
-                        </div>
-                    </div>
-                    <div class="tl-track">
-                        <div class="tl-track-label">cursor</div>
-                        <div class="tl-track-bar-wrap">
-                            <div class="tl-track-fill" id="track5" style="background:#ec4899"></div>
                         </div>
                     </div>
                 </div>

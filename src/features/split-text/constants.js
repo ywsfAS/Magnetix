@@ -1,9 +1,9 @@
 import { DEFAULT_PROP } from "../common.js";
 
 export const DEFAULT_TRANSFORM = {
-    x: DEFAULT_PROP(0),
-    y: DEFAULT_PROP(50),
-    rotate: DEFAULT_PROP(0),
+    x: DEFAULT_PROP(0, 'px'),
+    y: DEFAULT_PROP(50, 'px'),
+    rotate: DEFAULT_PROP(0, 'deg'),
     scale: DEFAULT_PROP(1),
     opacity: DEFAULT_PROP(1),
 };

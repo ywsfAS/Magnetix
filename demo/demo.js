@@ -26,6 +26,7 @@ const svgMotion = Magnetix.svgMotion(".svg-mover", {
         rotate: { value: 720, easing: Easings.easeInOutQuad },
         scale: { value: 1.8, easing: Easings.easeInOutQuad },
     },
+
 });
 svgMotionTimeline.add(svgMotion).play();
 
@@ -131,7 +132,7 @@ document.querySelectorAll(".copy-btn").forEach((btn) => {
 });
 
 
-let lastActive = null;
+let lastActive = $(".nav-item");
 document.querySelectorAll(".nav-item").forEach((el) => {
     el.addEventListener("click", () => {
         lastActive?.classList.remove("active");
