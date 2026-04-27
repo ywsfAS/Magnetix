@@ -86,19 +86,6 @@
                         </path>
                     </svg></a>
             </div>
-
-            <div class="hero-demo">
-                <div class="hero-demo-label">Live Demo — SVG Path Motion + Magnetic</div>
-                <svg class="svg-path-demo" viewBox="0 0 800 280" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M400 140 C550 60 700 200 600 140 C500 80 300 220 200 140 C100 60 250 200 400 140 Z"
-                        stroke="rgba(124,110,255,.6)" stroke-width="1" stroke-dasharray="6 6" fill="none" />
-                    <path d="M200 80 C350 20 650 260 600 200 C550 140 250 100 400 60" stroke="rgba(255,107,157,.4)"
-                        stroke-width="1" stroke-dasharray="4 8" fill="none" />
-                </svg>
-                <div class="demo-orb"></div>
-                <div class="demo-orb demo-orb2"></div>
-                <div class="demo-orb demo-orb3"></div>
-            </div>
         </section>
 
         <section id="install">
@@ -267,7 +254,14 @@ timeline<span class="op">.</span><span class="fn">seek</span>(<span class="num">
             <div class="demo-box">
                 <div class="demo-topbar">
                     <span>svgMotion.demo.js</span>
-                    <span class="demo-live-badge"><span class="demo-live-dot"></span>Live — Bezier Path</span>
+                    <button class="demo-live-badge" id="restart-svgMotion">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M20 12a8 8 0 1 1-2.34-5.66" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <polyline points="20 4 20 10 14 10" stroke="white" stroke-width="2" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
                 </div>
                 <div class="demo-stage" id="demo-svg-stage">
                     <svg class="svg-path-trace" viewBox="0 0 400 200" fill="none">
@@ -342,7 +336,16 @@ timeline<span class="op">.</span><span class="fn">seek</span>(<span class="num">
             <div class="demo-box">
                 <div class="demo-topbar">
                     <span>splitText.demo.js</span>
-                    <span class="demo-live-badge"><span class="demo-live-dot"></span>Live — chars mode</span>
+                    <button class="demo-live-badge" id="restart-splitText">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M20 12a8 8 0 1 1-2.34-5.66" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <polyline points="20 4 20 10 14 10" stroke="white" stroke-width="2" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+
+
+                    </button>
                 </div>
                 <div class="demo-stage" id="demo-splittext">
                     <div class="split-word" id="splitWord">ENJOY MY LIBRARY</div>
@@ -414,7 +417,14 @@ timeline<span class="op">.</span><span class="fn">seek</span>(<span class="num">
             <div class="demo-box">
                 <div class="demo-topbar">
                     <span>morph.demo.js</span>
-                    <span class="demo-live-badge"><span class="demo-live-dot"></span>Live — SVG morphing</span>
+                    <button class="demo-live-badge" id="restart-morph">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M20 12a8 8 0 1 1-2.34-5.66" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <polyline points="20 4 20 10 14 10" stroke="white" stroke-width="2" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
                 </div>
                 <div class="demo-stage" id="demo-morph-stage">
                     <svg class="morph-svg" viewBox="0 0 120 120">
@@ -493,7 +503,6 @@ timeline<span class="op">.</span><span class="fn">seek</span>(<span class="num">
             <div class="demo-box">
                 <div class="demo-topbar">
                     <span>cursor.demo.js</span>
-                    <span class="demo-live-badge"><span class="demo-live-dot"></span>Live — move mouse here</span>
                 </div>
                 <div class="demo-stage" id="demo-cursor-stage">
                     <div class="cursor-follower" id="cursorFollower"></div>
@@ -542,7 +551,6 @@ timeline<span class="op">.</span><span class="fn">seek</span>(<span class="num">
             <div class="demo-box">
                 <div class="demo-topbar">
                     <span>drag.demo.js</span>
-                    <span class="demo-live-badge"><span class="demo-live-dot"></span>Live — drag the box</span>
                 </div>
                 <div class="demo-stage" id="demo-drag-stage">
                     <div class="drag-box" id="dragBox">drag me</div>
@@ -576,7 +584,6 @@ timeline<span class="op">.</span><span class="fn">seek</span>(<span class="num">
             <div class="demo-box">
                 <div class="demo-topbar">
                     <span>parallax.demo.js</span>
-                    <span class="demo-live-badge"><span class="demo-live-dot"></span>Live — scroll-driven layers</span>
                 </div>
                 <div class="demo-stage" id="demo-parallax-stage">
                     <div class="parallax-layer slow">slow</div>
