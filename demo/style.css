@@ -510,7 +510,7 @@ pre {
     border-radius: 12px;
     padding: 20px;
     opacity: 0;
-    transition: all .3s;
+    transition: all .3s ease;
     cursor: default;
 }
 
@@ -1128,6 +1128,12 @@ section {
     transition: stroke-dashoffset 1s ease;
 }
 
+.feature-card:first-child:hover rect,
+.feature-card:first-child:hover line {
+    fill: var(--btn-hover);
+    stroke: var(--btn-primary);
+}
+
 .feature-card circle {
     animation: tl 3s ease-in infinite alternate-reverse;
 }
@@ -1148,8 +1154,18 @@ section {
     transition: transform 0.25s ease;
 }
 
-.feature-card:hover polygon {
+.feature-card:nth-child(2):hover polygon {
     transform: scale(1.2) rotate(-8deg);
+    fill: var(--accent2)
+}
+
+.feature-card:nth-child(2):hover line {
+    stroke: var(--accent2);
+}
+
+.feature-card:nth-child(3):hover rect,
+.feature-card:nth-child(3):hover circle {
+    fill: var(--accent3);
 }
 
 .feature-icon:hover line {

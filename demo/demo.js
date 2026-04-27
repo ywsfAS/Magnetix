@@ -73,38 +73,47 @@ const dragTimeline = new Magnetix.Timeline();
 const draggable = Magnetix.drag(".drag-box");
 dragTimeline.add(draggable).play();
 
-
-const masterTimeline = new Magnetix.Timeline();
-masterTimeline.add(magnetic, svgMotion, splitText, morph, cursor, draggable);
-masterTimeline.play();
-
 // Track bars
 const tracks = [
-    $$("track1"), $$("track2"), $$("track3"),
-    $$("track4"), $$("track5"), $$("tlFill"),
+    { track: $$("track1"), tl: svgMotionTimeline }, { track: $$("track2"), tl: morphTimeline }, { track: $$("track3"), tl: splitTextTimeline },
 ];
+const tls = [svgMotionTimeline, morphTimeline, splitTextTimeline];
 const tlPercent = $$("tlPercent");
 
 const trackAnim = (el, tl) => ({
     totalDuration: Infinity,
     update() { el.style.width = (tl.progress() * 100) + "%"; },
 });
+const mainTlProg = $$("tlFill");
 const percentAnim = (el) => ({
     totalDuration: Infinity,
-    update() { el.textContent = Math.round(svgMotionTimeline.progress() * 100) + "%"; },
+    update() {
+        let progress = Math.round(svgMotionTimeline.progress() * 100) + "%";
+        el.textContent = progress;
+    },
+});
+const mainTlAnim = (el) => ({
+    totalDuration: Infinity,
+    update() {
+        let progress = (svgMotionTimeline.progress() * 100) + "%";
+        el.style.width = progress;
+    },
 });
 
+
 const uiTimeline = new Magnetix.Timeline();
-uiTimeline.add(tracks.map(trackAnim));
-uiTimeline.add(percentAnim(tlPercent));
+uiTimeline.add(tracks.map((anim) => {
+    return trackAnim(anim.track, anim.tl);
+}));
+uiTimeline.add(percentAnim(tlPercent), mainTlAnim(mainTlProg));
 uiTimeline.play();
 
 // Controls
-$$("tlPlay").addEventListener("click", () => masterTimeline.play());
-$$("tlPause").addEventListener("click", () => masterTimeline.pause());
-$$("tlSeek25").addEventListener("click", () => masterTimeline.seek(0.25));
-$$("tlSeek50").addEventListener("click", () => masterTimeline.seek(0.5));
-$$("tlSeek75").addEventListener("click", () => masterTimeline.seek(0.75));
+$$("tlPlay").addEventListener("click", () => tls.map((tl) => tl.play()));
+$$("tlPause").addEventListener("click", () => tls.map((tl) => tl.pause()));
+$$("tlSeek25").addEventListener("click", () => tls.map((tl) => tl.seek(0.25)));
+$$("tlSeek50").addEventListener("click", () => tls.map((tl) => tl.seek(0.5)));
+$$("tlSeek75").addEventListener("click", () => tls.map((tl) => tl.seek(0.75)));
 
 // Restart buttons — each resets its own timeline
 $$("restart-svgMotion").addEventListener("click", () => { svgMotionTimeline.seek(0); });
