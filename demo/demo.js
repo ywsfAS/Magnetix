@@ -1,4 +1,5 @@
 import Magnetix from "../src/index.js";
+import createFeedback from "./feedback.js";
 
 const { Easings } = Magnetix;
 
@@ -240,3 +241,10 @@ const fastParallax = Magnetix.parallax(".parallax-layer.fast", { speed: 3.04 });
 
 testTimeline.add(sections, revealCard, tipCards, slowParallax, midParallax, fastParallax);
 testTimeline.play();
+// feedback section
+createFeedback({
+    endpoint: "https://formspree.io/f/xpqkgndo",
+    accent: "#00f5d4",
+    position: "left",
+    label: "Feedback",
+});

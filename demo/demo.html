@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Magnetix API docs</title>
     <link href="style.css" rel="stylesheet" />
+    <link href="feedback.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -316,7 +317,7 @@ timeline<span class="op">.</span><span class="fn">seek</span>(<span class="num">
                 <tr>
                     <td><code>transform.rotate</code></td>
                     <td class="type">object</td>
-                    <td><code>{ value, easing }</code> — total rotation in degrees</td>
+                    <td><code>{ value, easing , unit }</code> — total rotation default(deg)</td>
                 </tr>
                 <tr>
                     <td><code>transform.scale</code></td>
@@ -694,8 +695,19 @@ timeline<span class="op">.</span><span class="fn">seek</span>(<span class="num">
                 <tr>
                     <td><code>easing</code></td>
                     <td class="type">function</td>
-                    <td>Any Easings function</td>
+                    <td>Any Easings function default(Linear)</td>
                 </tr>
+                <tr>
+                    <td><code>transform</code></td>
+                    <td class="type">object</td>
+                    <td>
+                        Controls element transformations: <code>scale</code>, <code>opacity</code>,
+                        <code>x</code>, <code>y</code>, <code>rotate</code>.<br>
+                        Default units: <code>px</code> for position, <code>deg</code> for rotation.
+                    </td>
+                </tr>
+
+
             </table>
         </section>
 
@@ -1113,6 +1125,7 @@ timeline<span class="op">.</span><span class="fn">seek</span>(<span class="num">
 
     </main>
     <script src="demo.js" type="module"></script>
+    <script src="feedback.js" type="module"></script>
 </body>
 
 </html>
