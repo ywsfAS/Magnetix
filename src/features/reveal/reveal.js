@@ -10,7 +10,10 @@ function reveal(selector, config = {}) {
     } = { ...DEFAULT_CONFIG, ...config };
 
     const elements = [...document.querySelectorAll(selector)];
-    if (!elements.length) return null;
+    if (!elements.length) {
+        console.warn(`[Magnetix] Reveal: No element found for selector "${selector}"`);
+        return null;
+    };
     const items = elements.map((el, i) => {
         const transform = buildTransform(userTransform, DEFAULT_TRANSFORM);
         const anim = createAnimation({

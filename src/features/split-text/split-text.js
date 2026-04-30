@@ -6,7 +6,14 @@ import createAnimation from "../../core/motion.js";
 function SplitText(selector, type = "chars", config = {}) {
     const element = document.querySelector(selector);
     const letters = splitText(element, type);
-    if (!element || !letters.length) return null;
+    if (!element) {
+        console.warn(`[Magnetix] SplitText: No element found for selector "${selector}"`);
+        return null;
+    };
+    if (!letters.length) {
+        console.warn(`[Magnetix] SplitText: No content for element with selector "${selector}"`);
+        return null;
+    }
 
     const { from, to, delay, duration, transform: userTransform, easing, yoyo, repeat } =
         { ...DEFAULT_CONFIG, ...config };

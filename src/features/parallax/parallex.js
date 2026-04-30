@@ -7,11 +7,13 @@ window.addEventListener("scroll", () => { scrollY = window.scrollY; }, { passive
 function parallax(selector, config = {}) {
     const { speed = 0.02, transform: userTransform, easing } = config;
     const elements = [...document.querySelectorAll(selector)];
-    if (!elements.length) return null;
+    if (!elements.length) {
+        console.warn(`[Magnetix] Parallex: No element found for selector "${selector}"`);
+        return null;
+    };
 
     const items = elements.map((el) => {
         const transform = buildTransform(DEFAULT_TRANSFORM, userTransform);
-        console.log(transform)
         return { el, transform };
     });
 

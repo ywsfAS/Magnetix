@@ -3,6 +3,10 @@ import { animate, trackMouseDown, trackMouseMove, trackMouseRelease } from "./he
 
 function drag(selector, config = {}) {
     const el = document.querySelector(selector);
+    if (!el) {
+        console.warn(`[Magnetix] Drag: No element found for selector "${selector}"`);
+        return null;
+    }
     const state = {
         x: 0,
         y: 0,

@@ -5,6 +5,10 @@ import { interpolatePoints, normalize, pointsToPath } from "./helper.js";
 
 function morph(selector, config = {}) {
     const element = document.querySelector(selector);
+    if (!element) {
+        console.warn(`[Magnetix] Morph: No element found for selector "${selector}"`);
+        return null;
+    }
     const { from, to, delay, easing, duration, start, end, pointsCount } = { ...DEFAULT_MORPH_CONFIG, ...config };
 
     const normalizedFrom = normalize(from, pointsCount);

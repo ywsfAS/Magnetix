@@ -4,6 +4,9 @@ import { getBezierOnPath, applyTransform } from "./helper.js";
 
 function svgMotion(selector, config = {}) {
     const element = document.querySelector(selector);
+    if (!element) {
+        console.warn(`[Magnetix] SvgMotion: No element found for selector "${selector}"`)
+    }
     const {
         from, to, easing, duration, delay, repeat, yoyo,
         path: userPath,

@@ -1,4 +1,4 @@
-import Magnetix from "../src/index.js";
+import Magnetix from "../../../src/index.js";
 
 function createFeedback(config = {}) {
     const {
@@ -103,9 +103,9 @@ function createFeedback(config = {}) {
     let slideTimeline = null;
 
     const magneticTimeline = new Magnetix.Timeline();
-    const mag = Magnetix.magnetic(".fb-trigger", {
-        strength: 0.35,
-        maxDistance: 90,
+    const mag = Magnetix.magnetic(".fb-trigger svg", {
+        strength: 0.3,
+        maxDistance: 200,
     });
     const drag = Magnetix.drag(".fb-trigger")
     magneticTimeline.add(mag, drag);

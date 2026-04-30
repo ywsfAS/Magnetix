@@ -1,5 +1,5 @@
 import Magnetix from "../src/index.js";
-import createFeedback from "./feedback.js";
+import createFeedback from "./components/feedback/feedback.js";
 
 const { Easings } = Magnetix;
 
