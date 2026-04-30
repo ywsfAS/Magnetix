@@ -91,7 +91,6 @@ Magnetix/
 │   │   ├── drag/
 │   │   └── cursor/
 │   └── index.js
-├── demo/
 ├── docs/
 ├── tests/
 ├── vitest.config.js
