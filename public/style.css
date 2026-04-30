@@ -617,7 +617,6 @@ pre {
     display: flex;
     gap: 0;
     letter-spacing: -1px;
-    margin-bottom: 20px;
 }
 
 #demo-cursor-stage {

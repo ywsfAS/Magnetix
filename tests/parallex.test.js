@@ -11,7 +11,7 @@ vi.mock("../src/features/parallax/constants.js", () => ({
     DEFAULT_TRANSFORM: { y: { value: 0 } }
 }));
 
-import { parallax } from "../src/features/parallax/parallex.js";
+import { parallax } from "../src/features/parallax/parallax.js";
 import { applyTransform, buildTransform } from "../src/features/common.js";
 
 function setWindowProps({ scrollY = 0, innerHeight = 1000 } = {}) {

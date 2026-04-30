@@ -1,6 +1,7 @@
 import Easings from "./core/easing.js";
+
 import magnetic from "./features/magnetic/magnetic.js";
-import { parallax } from "./features/parallax/parallex.js";
+import { parallax } from "./features/parallax/parallax.js";
 import reveal from "./features/reveal/reveal.js";
 import splitText from "./features/split-text/split-text.js";
 import createAnimation from "./core/motion.js";
@@ -10,7 +11,7 @@ import morph from "./features/morph/morph.js";
 import cursor from "./features/cursor-follow/cursor.js";
 import drag from "./features/dragging/drag.js";
 
-export const Magnetix = {
+export {
     Easings,
     magnetic,
     parallax,
@@ -21,6 +22,21 @@ export const Magnetix = {
     Timeline,
     morph,
     cursor,
-    drag,
-}
+    drag
+};
+
+const Magnetix = {
+    Easings,
+    magnetic,
+    parallax,
+    reveal,
+    splitText,
+    createAnimation,
+    svgMotion,
+    Timeline,
+    morph,
+    cursor,
+    drag
+};
+
 export default Magnetix;

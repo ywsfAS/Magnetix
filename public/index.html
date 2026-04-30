@@ -73,7 +73,7 @@
 
             <p class="hero-sub">
                 Magnetix is a lightweight, composable motion engine for the web.
-                SVG path animation, magnetic interactions, timeline control, and rich text effects —
+                SVG path animation, magnetic interactions, timeline control, and rich text effects
                 all unified under one clean API.
             </p>
 
@@ -216,8 +216,8 @@ timeline<span class="op">.</span><span class="fn">seek</span>(<span class="num">
                     <button class="copy-btn">Copy</button>
                 </div>
                 <pre><span class="kw">const</span> motion <span class="op">=</span> Magnetix<span class="op">.</span><span class="fn">magnetic</span>(<span class="str">".circle"</span><span class="op">,</span> <span class="op">{</span>
-<span class="prop">strength</span><span class="op">:</span> <span class="num">0.5</span><span class="op">,</span>
-<span class="prop">radius</span><span class="op">:</span> <span class="num">100</span>
+        <span class="prop">strength</span><span class="op">:</span> <span class="num">0.5</span><span class="op">,</span>
+        <span class="prop">radius</span><span class="op">:</span> <span class="num">100</span>
 <span class="op">}</span>)<span class="op">;</span></pre>
             </div>
 
@@ -284,15 +284,15 @@ timeline<span class="op">.</span><span class="fn">seek</span>(<span class="num">
                     <button class="copy-btn">Copy</button>
                 </div>
                 <pre><span class="kw">const</span> motion <span class="op">=</span> Magnetix<span class="op">.</span><span class="fn">svgMotion</span>(<span class="str">".box"</span><span class="op">,</span> <span class="op">{</span>
-<span class="prop">duration</span><span class="op">:</span> <span class="num">12000</span><span class="op">,</span>
-<span class="prop">path</span><span class="op">: [</span>
-<span class="op">{</span> <span class="prop">from</span><span class="op">: [</span><span class="num">0</span><span class="op">,</span> <span class="num">0</span><span class="op">],</span> <span class="prop">p1</span><span class="op">: [</span><span class="num">300</span><span class="op">,</span> <span class="op">-</span><span class="num">200</span><span class="op">],</span> <span class="prop">p2</span><span class="op">: [</span><span class="num">600</span><span class="op">,</span> <span class="num">200</span><span class="op">],</span> <span class="prop">to</span><span class="op">: [</span><span class="num">300</span><span class="op">,</span> <span class="num">400</span><span class="op">]</span> <span class="op">},</span>
-<span class="op">{</span> <span class="prop">from</span><span class="op">: [</span><span class="num">300</span><span class="op">,</span> <span class="num">400</span><span class="op">],</span> <span class="prop">p1</span><span class="op">: [</span><span class="num">0</span><span class="op">,</span> <span class="num">600</span><span class="op">],</span> <span class="prop">p2</span><span class="op">: [</span><span class="op">-</span><span class="num">300</span><span class="op">,</span> <span class="num">200</span><span class="op">],</span> <span class="prop">to</span><span class="op">: [</span><span class="num">0</span><span class="op">,</span> <span class="num">0</span><span class="op">]</span> <span class="op">},</span>
-<span class="op">],</span>
-<span class="prop">transform</span><span class="op">: {</span>
-<span class="prop">rotate</span><span class="op">: {</span> <span class="prop">value</span><span class="op">:</span> <span class="num">720</span><span class="op">,</span> <span class="prop">easing</span><span class="op">:</span> Easings<span class="op">.</span><span class="prop">easeInOutQuad</span> <span class="op">},</span>
-<span class="prop">scale</span><span class="op">:  {</span> <span class="prop">value</span><span class="op">:</span> <span class="num">1.8</span><span class="op">,</span> <span class="prop">easing</span><span class="op">:</span> Easings<span class="op">.</span><span class="prop">easeInOutQuad</span> <span class="op">},</span>
-<span class="op">}</span>
+        <span class="prop">duration</span><span class="op">:</span> <span class="num">12000</span><span class="op">,</span>
+        <span class="prop">path</span><span class="op">: [</span>
+        <span class="op">{</span> <span class="prop">from</span><span class="op">: [</span><span class="num">0</span><span class="op">,</span> <span class="num">0</span><span class="op">],</span> <span class="prop">p1</span><span class="op">: [</span><span class="num">300</span><span class="op">,</span> <span class="op">-</span><span class="num">200</span><span class="op">],</span> <span class="prop">p2</span><span class="op">: [</span><span class="num">600</span><span class="op">,</span> <span class="num">200</span><span class="op">],</span> <span class="prop">to</span><span class="op">: [</span><span class="num">300</span><span class="op">,</span> <span class="num">400</span><span class="op">]</span> <span class="op">},</span>
+        <span class="op">{</span> <span class="prop">from</span><span class="op">: [</span><span class="num">300</span><span class="op">,</span> <span class="num">400</span><span class="op">],</span> <span class="prop">p1</span><span class="op">: [</span><span class="num">0</span><span class="op">,</span> <span class="num">600</span><span class="op">],</span> <span class="prop">p2</span><span class="op">: [</span><span class="op">-</span><span class="num">300</span><span class="op">,</span> <span class="num">200</span><span class="op">],</span> <span class="prop">to</span><span class="op">: [</span><span class="num">0</span><span class="op">,</span> <span class="num">0</span><span class="op">]</span> <span class="op">},</span>
+        <span class="op">],</span>
+        <span class="prop">transform</span><span class="op">: {</span>
+        <span class="prop">rotate</span><span class="op">: {</span> <span class="prop">value</span><span class="op">:</span> <span class="num">720</span><span class="op">,</span> <span class="prop">easing</span><span class="op">:</span> Easings<span class="op">.</span><span class="prop">easeInOutQuad</span> <span class="op">},</span>
+        <span class="prop">scale</span><span class="op">:  {</span> <span class="prop">value</span><span class="op">:</span> <span class="num">1.8</span><span class="op">,</span> <span class="prop">easing</span><span class="op">:</span> Easings<span class="op">.</span><span class="prop">easeInOutQuad</span> <span class="op">},</span>
+        <span class="op">}</span>
 <span class="op">}</span>)<span class="op">;</span></pre>
             </div>
 
@@ -375,19 +375,19 @@ timeline<span class="op">.</span><span class="fn">seek</span>(<span class="num">
                     <button class="copy-btn">Copy</button>
                 </div>
                 <pre><span class="kw">const</span> motion <span class="op">=</span> Magnetix<span class="op">.</span><span class="fn">splitText</span>(<span class="str">".title"</span><span class="op">,</span> <span class="str">"chars"</span><span class="op">,</span> <span class="op">{</span>
-<span class="prop">from</span><span class="op">:</span> <span class="num">0</span><span class="op">,</span>
-<span class="prop">to</span><span class="op">:</span> <span class="num">100</span><span class="op">,</span>
-<span class="prop">easing</span><span class="op">:</span> Easings<span class="op">.</span><span class="prop">easeInOutCubic</span><span class="op">,</span> <span class="prop">delay</span><span class="op">:</span> <span class="num">100</span><span class="op">,</span>          <span class="cmt">// stagger delay between chars (ms)</span>
-<span class="prop">duration</span><span class="op">:</span> <span class="num">1200</span><span class="op">,</span> <span class="prop">transform</span><span class="op">:</span> <span class="op">{</span>
-<span class="prop">scale</span><span class="op">:</span> <span class="op">{</span>
-<span class="prop">value</span><span class="op">:</span> <span class="num">2</span><span class="op">,</span>
-<span class="prop">easing</span><span class="op">:</span> Easings<span class="op">.</span><span class="prop">easeOutBack</span>
-<span class="op">}</span><span class="op">,</span>
-<span class="prop">rotate</span><span class="op">:</span> <span class="op">{</span>
-<span class="prop">value</span><span class="op">:</span> <span class="num">360</span><span class="op">,</span>
-<span class="prop">easing</span><span class="op">:</span> Easings<span class="op">.</span><span class="prop">easeInOutCubic</span>
-<span class="op">}</span>
-<span class="op">}</span>
+        <span class="prop">from</span><span class="op">:</span> <span class="num">0</span><span class="op">,</span>
+        <span class="prop">to</span><span class="op">:</span> <span class="num">100</span><span class="op">,</span>
+        <span class="prop">easing</span><span class="op">:</span> Easings<span class="op">.</span><span class="prop">easeInOutCubic</span><span class="op">,</span> <span class="prop">delay</span><span class="op">:</span> <span class="num">100</span><span class="op">,</span>          <span class="cmt">// stagger delay between chars (ms)</span>
+        <span class="prop">duration</span><span class="op">:</span> <span class="num">1200</span><span class="op">,</span> <span class="prop">transform</span><span class="op">:</span> <span class="op">{</span>
+        <span class="prop">scale</span><span class="op">:</span> <span class="op">{</span>
+        <span class="prop">value</span><span class="op">:</span> <span class="num">2</span><span class="op">,</span>
+        <span class="prop">easing</span><span class="op">:</span> Easings<span class="op">.</span><span class="prop">easeOutBack</span>
+        <span class="op">}</span><span class="op">,</span>
+        <span class="prop">rotate</span><span class="op">:</span> <span class="op">{</span>
+        <span class="prop">value</span><span class="op">:</span> <span class="num">360</span><span class="op">,</span>
+        <span class="prop">easing</span><span class="op">:</span> Easings<span class="op">.</span><span class="prop">easeInOutCubic</span>
+        <span class="op">}</span>
+        <span class="op">}</span>
 <span class="op">}</span>)<span class="op">;</span></pre>
             </div>
 
@@ -474,17 +474,17 @@ timeline<span class="op">.</span><span class="fn">seek</span>(<span class="num">
                     <button class="copy-btn">Copy</button>
                 </div>
                 <pre><span class="kw">const</span> motion <span class="op">=</span> Magnetix<span class="op">.</span><span class="fn">morph</span>(<span class="str">".shape"</span><span class="op">,</span> <span class="op">{</span>
-<span class="prop">from</span><span class="op">:</span> <span class="op">[</span>
-<span class="op">{</span> <span class="prop">x</span><span class="op">:</span> <span class="num">20</span><span class="op">,</span> <span class="prop">y</span><span class="op">:</span> <span class="num">20</span> <span class="op">}</span><span class="op">,</span>
-<span class="op">{</span> <span class="prop">x</span><span class="op">:</span> <span class="num">80</span><span class="op">,</span> <span class="prop">y</span><span class="op">:</span> <span class="num">20</span> <span class="op">}</span><span class="op">,</span>
-<span class="op">{</span> <span class="prop">x</span><span class="op">:</span> <span class="num">50</span><span class="op">,</span> <span class="prop">y</span><span class="op">:</span> <span class="num">80</span> <span class="op">}</span>
-<span class="op">]</span><span class="op">,</span>
-<span class="prop">to</span><span class="op">:</span> <span class="op">[</span>
-<span class="op">{</span> <span class="prop">x</span><span class="op">:</span> <span class="num">30</span><span class="op">,</span> <span class="prop">y</span><span class="op">:</span> <span class="num">10</span> <span class="op">}</span><span class="op">,</span>
-<span class="op">{</span> <span class="prop">x</span><span class="op">:</span> <span class="num">90</span><span class="op">,</span> <span class="prop">y</span><span class="op">:</span> <span class="num">50</span> <span class="op">}</span><span class="op">,</span>
-<span class="op">{</span> <span class="prop">x</span><span class="op">:</span> <span class="num">20</span><span class="op">,</span> <span class="prop">y</span><span class="op">:</span> <span class="num">90</span> <span class="op">}</span>
-<span class="op">]</span><span class="op">,</span>
-<span class="prop">pointsCount</span><span class="op">:</span> <span class="num">3</span>
+        <span class="prop">from</span><span class="op">:</span> <span class="op">[</span>
+        <span class="op">{</span> <span class="prop">x</span><span class="op">:</span> <span class="num">20</span><span class="op">,</span> <span class="prop">y</span><span class="op">:</span> <span class="num">20</span> <span class="op">}</span><span class="op">,</span>
+        <span class="op">{</span> <span class="prop">x</span><span class="op">:</span> <span class="num">80</span><span class="op">,</span> <span class="prop">y</span><span class="op">:</span> <span class="num">20</span> <span class="op">}</span><span class="op">,</span>
+        <span class="op">{</span> <span class="prop">x</span><span class="op">:</span> <span class="num">50</span><span class="op">,</span> <span class="prop">y</span><span class="op">:</span> <span class="num">80</span> <span class="op">}</span>
+        <span class="op">]</span><span class="op">,</span>
+        <span class="prop">to</span><span class="op">:</span> <span class="op">[</span>
+        <span class="op">{</span> <span class="prop">x</span><span class="op">:</span> <span class="num">30</span><span class="op">,</span> <span class="prop">y</span><span class="op">:</span> <span class="num">10</span> <span class="op">}</span><span class="op">,</span>
+        <span class="op">{</span> <span class="prop">x</span><span class="op">:</span> <span class="num">90</span><span class="op">,</span> <span class="prop">y</span><span class="op">:</span> <span class="num">50</span> <span class="op">}</span><span class="op">,</span>
+        <span class="op">{</span> <span class="prop">x</span><span class="op">:</span> <span class="num">20</span><span class="op">,</span> <span class="prop">y</span><span class="op">:</span> <span class="num">90</span> <span class="op">}</span>
+        <span class="op">]</span><span class="op">,</span>
+        <span class="prop">pointsCount</span><span class="op">:</span> <span class="num">3</span>
 <span class="op">}</span>)<span class="op">;</span></pre>
             </div>
 
@@ -559,7 +559,7 @@ timeline<span class="op">.</span><span class="fn">seek</span>(<span class="num">
                     <button class="copy-btn">Copy</button>
                 </div>
                 <pre><span class="kw">const</span> motion <span class="op">=</span> Magnetix<span class="op">.</span><span class="fn">cursor</span>(<span class="str">".cursor"</span><span class="op">,</span> <span class="op">{</span>
-<span class="prop">speed</span><span class="op">:</span> <span class="num">0.09</span>    <span class="cmt">// lower = more lag (0.01 – 1.0)</span>
+        <span class="prop">speed</span><span class="op">:</span> <span class="num">0.09</span>    <span class="cmt">// lower = more lag (0.01 – 1.0)</span>
 <span class="op">}</span>)<span class="op">;</span></pre>
             </div>
 
@@ -605,7 +605,7 @@ timeline<span class="op">.</span><span class="fn">seek</span>(<span class="num">
                     <button class="copy-btn">Copy</button>
                 </div>
                 <pre><span class="kw">const</span> motion <span class="op">=</span> Magnetix<span class="op">.</span><span class="fn">drag</span>(<span class="str">".drag"</span><span class="op">,</span> <span class="op">{</span>
-<span class="prop">speed</span><span class="op">:</span> <span class="num">1</span>
+        <span class="prop">speed</span><span class="op">:</span> <span class="num">1</span>
 <span class="op">}</span>)<span class="op">;</span></pre>
             </div>
         </section>
@@ -663,12 +663,12 @@ timeline<span class="op">.</span><span class="fn">seek</span>(<span class="num">
                 </div>
                 <pre><span class="kw">import</span> reveal <span class="kw">from</span> <span class="str">"./features/reveal/reveal.js"</span><span class="op">;</span>
 
-                    <span class="fn">reveal</span>(<span class="str">".section"</span><span class="op">,</span> <span class="op">{</span>
-                    <span class="prop">threshold</span><span class="op">:</span> <span class="num">0.2</span><span class="op">,</span>      <span class="cmt">// % of element visible before trigger</span>
-                    <span class="prop">duration</span><span class="op">:</span>  <span class="num">800</span><span class="op">,</span>
-                    <span class="prop">from</span><span class="op">: {</span> <span class="prop">opacity</span><span class="op">:</span> <span class="num">0</span><span class="op">,</span> <span class="prop">y</span><span class="op">:</span> <span class="num">40</span> <span class="op">},</span>
-                    <span class="prop">easing</span><span class="op">:</span> Easings<span class="op">.</span><span class="prop">easeOutCubic</span><span class="op">,</span>
-                    <span class="op">}</span>)<span class="op">;</span></pre>
+<span class="fn">reveal</span>(<span class="str">".section"</span><span class="op">,</span> <span class="op">{</span>
+        <span class="prop">threshold</span><span class="op">:</span> <span class="num">0.2</span><span class="op">,</span>      <span class="cmt">// % of element visible before trigger</span>
+        <span class="prop">duration</span><span class="op">:</span>  <span class="num">800</span><span class="op">,</span>
+        <span class="prop">from</span><span class="op">: {</span> <span class="prop">opacity</span><span class="op">:</span> <span class="num">0</span><span class="op">,</span> <span class="prop">y</span><span class="op">:</span> <span class="num">40</span> <span class="op">},</span>
+        <span class="prop">easing</span><span class="op">:</span> Easings<span class="op">.</span><span class="prop">easeOutCubic</span><span class="op">,</span>
+<span class="op">}</span>)<span class="op">;</span></pre>
             </div>
 
             <table class="api-table mt-md">
@@ -770,22 +770,21 @@ timeline<span class="op">.</span><span class="fn">seek</span>(<span class="num">
                     <button class="copy-btn">Copy</button>
                 </div>
                 <pre><span class="kw">const</span> timeline <span class="op">=</span> <span class="kw">new</span> Magnetix<span class="op">.</span><span class="fn">Timeline</span>()<span class="op">;</span>
+timeline<span class="op">.</span><span class="fn">add</span>(
+    svgAnimation<span class="op">,</span>   <span class="cmt">// svgMotion</span>
+    magneticAnimation<span class="op">,</span>  <span class="cmt">// magnetic</span>
+    splitTextAnimation<span class="op">,</span>  <span class="cmt">// splitText</span>
+    morphAnimation<span class="op">,</span>  <span class="cmt">// morph</span>
+    cursorAnimation<span class="op">,</span>  <span class="cmt">// cursor</span>
+    dragAnimation<span class="op">,</span>  <span class="cmt">// drag</span>
+)<span class="op">;</span>
 
-                timeline<span class="op">.</span><span class="fn">add</span>(
-                svgAnimation<span class="op">,</span>   <span class="cmt">// svgMotion</span>
-                magneticAnimation<span class="op">,</span>  <span class="cmt">// magnetic</span>
-                splitTextAnimation<span class="op">,</span>  <span class="cmt">// splitText</span>
-                morphAnimation<span class="op">,</span>  <span class="cmt">// morph</span>
-                cursorAnimation<span class="op">,</span>  <span class="cmt">// cursor</span>
-                dragAnimation<span class="op">,</span>  <span class="cmt">// drag</span>
-                )<span class="op">;</span>
+timeline<span class="op">.</span><span class="fn">play</span>()<span class="op">;</span>
 
-                timeline<span class="op">.</span><span class="fn">play</span>()<span class="op">;</span>
-
-                <span class="cmt">// Seek to any point (0.0 → 1.0)</span>
-                <span class="fn">$$</span>(<span class="str">'seekBtn'</span>)<span class="op">.</span><span class="fn">addEventListener</span>(<span class="str">'click'</span><span class="op">,</span> () <span class="op">=></span> timeline<span class="op">.</span><span class="fn">seek</span>(<span class="num">0.5</span>))<span class="op">;</span>
-                <span class="fn">$$</span>(<span class="str">'pauseBtn'</span>)<span class="op">.</span><span class="fn">addEventListener</span>(<span class="str">'click'</span><span class="op">,</span> () <span class="op">=></span> timeline<span class="op">.</span><span class="fn">pause</span>())<span class="op">;</span>
-                <span class="fn">$$</span>(<span class="str">'playBtn'</span>)<span class="op">.</span><span class="fn">addEventListener</span>(<span class="str">'click'</span><span class="op">,</span> () <span class="op">=></span> timeline<span class="op">.</span><span class="fn">play</span>())<span class="op">;</span></pre>
+<span class="cmt">// Seek to any point (0.0 → 1.0)</span>
+<span class="fn">$$</span>(<span class="str">'seekBtn'</span>)<span class="op">.</span><span class="fn">addEventListener</span>(<span class="str">'click'</span><span class="op">,</span> () <span class="op">=></span> timeline<span class="op">.</span><span class="fn">seek</span>(<span class="num">0.5</span>))<span class="op">;</span>
+<span class="fn">$$</span>(<span class="str">'pauseBtn'</span>)<span class="op">.</span><span class="fn">addEventListener</span>(<span class="str">'click'</span><span class="op">,</span> () <span class="op">=></span> timeline<span class="op">.</span><span class="fn">pause</span>())<span class="op">;</span>
+<span class="fn">$$</span>(<span class="str">'playBtn'</span>)<span class="op">.</span><span class="fn">addEventListener</span>(<span class="str">'click'</span><span class="op">,</span> () <span class="op">=></span> timeline<span class="op">.</span><span class="fn">play</span>())<span class="op">;</span></pre>
             </div>
         </section>
 
@@ -807,16 +806,16 @@ timeline<span class="op">.</span><span class="fn">seek</span>(<span class="num">
                     <button class="copy-btn">Copy</button>
                 </div>
                 <pre><span class="kw">const</span> <span class="op">{</span> <span class="prop">Easings</span> <span class="op">}</span> <span class="op">=</span> Magnetix<span class="op">;</span>
-                    <span class="cmt">// Linear</span>
-                    Easings<span class="op">.</span><span class="prop">linear</span>
-                    <span class="cmt">// Polynomial</span>
-                    Easings<span class="op">.</span><span class="prop">easeInQuad</span>      Easings<span class="op">.</span><span class="prop">easeOutQuad</span>      Easings<span class="op">.</span><span class="prop">easeInOutQuad</span>
-                    Easings<span class="op">.</span><span class="prop">easeInCubic</span>     Easings<span class="op">.</span><span class="prop">easeOutCubic</span>     Easings<span class="op">.</span><span class="prop">easeInOutCubic</span>
-                    Easings<span class="op">.</span><span class="prop">easeInQuart</span>     Easings<span class="op">.</span><span class="prop">easeOutQuart</span>     Easings<span class="op">.</span><span class="prop">easeInOutQuart</span>
-                    <span class="cmt">// Special</span>
-                    Easings<span class="op">.</span><span class="prop">easeInElastic</span>   Easings<span class="op">.</span><span class="prop">easeOutElastic</span>   Easings<span class="op">.</span><span class="prop">easeInOutElastic</span>
-                    Easings<span class="op">.</span><span class="prop">easeInBack</span>      Easings<span class="op">.</span><span class="prop">easeOutBack</span>      Easings<span class="op">.</span><span class="prop">easeInOutBack</span>
-                    Easings<span class="op">.</span><span class="prop">easeInBounce</span>    Easings<span class="op">.</span><span class="prop">easeOutBounce</span>    Easings<span class="op">.</span><span class="prop">easeInOutBounce</span></pre>
+<span class="cmt">// Linear</span>
+Easings<span class="op">.</span><span class="prop">linear</span>
+<span class="cmt">// Polynomial</span>
+Easings<span class="op">.</span><span class="prop">easeInQuad</span>      Easings<span class="op">.</span><span class="prop">easeOutQuad</span>      Easings<span class="op">.</span><span class="prop">easeInOutQuad</span>
+Easings<span class="op">.</span><span class="prop">easeInCubic</span>     Easings<span class="op">.</span><span class="prop">easeOutCubic</span>     Easings<span class="op">.</span><span class="prop">easeInOutCubic</span>
+Easings<span class="op">.</span><span class="prop">easeInQuart</span>     Easings<span class="op">.</span><span class="prop">easeOutQuart</span>     Easings<span class="op">.</span><span class="prop">easeInOutQuart</span>
+<span class="cmt">// Special</span>
+Easings<span class="op">.</span><span class="prop">easeInElastic</span>   Easings<span class="op">.</span><span class="prop">easeOutElastic</span>   Easings<span class="op">.</span><span class="prop">easeInOutElastic</span>
+Easings<span class="op">.</span><span class="prop">easeInBack</span>      Easings<span class="op">.</span><span class="prop">easeOutBack</span>      Easings<span class="op">.</span><span class="prop">easeInOutBack</span>
+Easings<span class="op">.</span><span class="prop">easeInBounce</span>    Easings<span class="op">.</span><span class="prop">easeOutBounce</span>    Easings<span class="op">.</span><span class="prop">easeInOutBounce</span></pre>
             </div>
         </section>
         <section id="api">
@@ -1124,7 +1123,7 @@ timeline<span class="op">.</span><span class="fn">seek</span>(<span class="num">
         </footer>
 
     </main>
-    <script src="demo.js" type="module"></script>
+    <script src="index.js" type="module"></script>
 </body>
 
 </html>
