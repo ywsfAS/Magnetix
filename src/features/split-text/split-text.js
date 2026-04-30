@@ -6,6 +6,7 @@ import createAnimation from "../../core/motion.js";
 function SplitText(selector, type = "chars", config = {}) {
     const element = document.querySelector(selector);
     const letters = splitText(element, type);
+    if (!element || !letters.length) return null;
 
     const { from, to, delay, duration, transform: userTransform, easing, yoyo, repeat } =
         { ...DEFAULT_CONFIG, ...config };
