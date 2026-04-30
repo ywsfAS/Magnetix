@@ -10,7 +10,7 @@ function reveal(selector, config = {}) {
     } = { ...DEFAULT_CONFIG, ...config };
 
     const elements = [...document.querySelectorAll(selector)];
-
+    if (!elements.length) return null;
     const items = elements.map((el, i) => {
         const transform = buildTransform(userTransform, DEFAULT_TRANSFORM);
         const anim = createAnimation({

@@ -3,6 +3,7 @@ function magnetic(selector, config = {}) {
     const strength = config.strength ?? 0.3;
     const maxDistance = config.maxDistance ?? 200;
     const el = document.querySelector(selector);
+    if (!el) return null;
     let position = { x: 0, y: 0 };
 
     function onMove(e) {

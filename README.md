@@ -37,7 +37,6 @@ scroll effects, and interactive UI animations.
 - Drag interactions
 - Cursor follower system
 - Repeat and Yoyo loop support
-- High-performance frame engine
 
 ---
 

@@ -31,7 +31,7 @@ function parallax(selector, config = {}) {
         },
         kill() {
             items.forEach(({ el, transform }) => {
-                transform.y = 0;
+                transform.y.value = 0;
                 applyTransform(el, transform);
             });
         },
